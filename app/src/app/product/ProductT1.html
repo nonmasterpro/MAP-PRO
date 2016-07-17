@@ -1,0 +1,121 @@
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Product
+                    <small>1 Column View</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/#index">Home</a>
+                    </li>
+                    <li class="active">Product Stock</li>
+                  <div class="dropdown Fix">
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      View Type
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <a href="#/Product1" class="list-group-item"> 1 Column View </a>
+                      <a href="#/Product2" class="list-group-item"> 2 Column View </a>
+                      <a href="#/Product3" class="list-group-item"> 3 Column View </a>
+                      <a href="#/Product4" class="list-group-item"> Picture View </a>
+                    </div>
+                  </div>
+                </ol>
+            </div>
+        </div>
+
+
+        <!-- Project One -->
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="product in vm.products">
+          <div ng-repeat="image in product.images | limitTo:1" ng-if="$index%1==0" class="col-md-4 img-hover2">
+            <a href="#/ProductItem/{{product.id}}">
+            <img class="img-responsive" ng-src="data:{{image.contentType}};base64,{{image.content}}" alt="">
+              </a>
+          </div>
+            <div class="col-md-4">
+                <h3>{{product.name}}</h3>
+                <p>{{product.description}}</p>
+              <hr>
+              <h4 ng-show="hasRole('userretail')||hasRole('userwholesale')">Price</h4>
+              <p ng-show="hasRole('userretail')">{{product.totalPrice}}</p>
+              <p ng-show="hasRole('userwholesale')">{{product.wholesalePrice}}</p>
+                <a class="btn btn-danger" ng-href="#/ProductItem/{{product.id}}">View Product</a>
+              <a class="btn btn-danger" data-toggle="modal" data-target="#ModalCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" ng-click="addToCart(product)">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="ModalCart" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" >{{HeadSuccess}}</h4>
+              <h4 class="modal-title" ng-hide="result">{{HeadFail}}</h4>
+            </div>
+            <div class="modal-body">
+              <p style="color: white" >{{result}}</p>
+              <p style="color: white" ng-hide="result">{{error}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!--&lt;!&ndash; Project Two &ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-7">-->
+                <!--<a href="#/ProductItem">-->
+                    <!--<img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-md-5">-->
+                <!--<h3>Project Two</h3>-->
+                <!--<h4>Subheading</h4>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>-->
+                <!--<a class="btn btn-primary" href="#/ProductItem">View Project</i></a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+
+        <!--<hr>-->
+
+        <hr>
+
+        <!--&lt;!&ndash; Pagination &ndash;&gt;-->
+        <!--<div class="row text-center">-->
+            <!--<div class="col-lg-12">-->
+                <!--<ul class="pagination">-->
+                    <!--<li>-->
+                        <!--<a href="#">&laquo;</a>-->
+                    <!--</li>-->
+                    <!--<li class="active">-->
+                        <!--<a href="#">1</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">2</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">3</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">4</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">5</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">&raquo;</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    </div>
