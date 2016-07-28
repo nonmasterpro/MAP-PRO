@@ -29,16 +29,16 @@ public class DatabaseInitializationBean implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         Product[] initProduct = {
-                new Product(1l, "Kindle", "the good book reader", 6900.00,6000.00, ImageUtil.getImage("pic/angular.png")),
-                new Product(2l, "Surface Pro", "The unknow computer", 34000.00,30000.00, ImageUtil.getImage("pic/bootstrap.png")),
-                new Product(3l, "Mac pro", " Mac book interim", 44000.00, 40000.00, ImageUtil.getImage("pic/browsersync.png")),
-                new Product(4l, "Candle", "use for lightenup the world", 10.00, 5.00 , ImageUtil.getImage("pic/gulp.png")),
-                new Product(5l, "Bin", "User for what ?", 200.00, 150.00, ImageUtil.getImage("pic/jasmine.png")),
-                new Product(6l, "Telephone", "Call the others", 150.00, 100.00 , ImageUtil.getImage("pic/karma.png")),
-                new Product(7l, "iPhone", "What is it?", 26000.00, 20000.00, ImageUtil.getImage("pic/node-sass.png")),
-                new Product(8l, "Galaxy Note 4", "Who still use this ?", 24000.00, 20000.00, ImageUtil.getImage("pic/protractor.png")),
-                new Product(9l, "AngularJS", "we hate it", 2000.00,1000.00, ImageUtil.getImage("pic/ui-bootstrap.png")),
-                new Product(10l, "Mazda 3", "Very handsome guy use this", 300000.00,200.00, ImageUtil.getImage("pic/yeoman.png"))
+                new Product(1l, "CAMT", "College of art media and technology", 10.5,112.0,"02-222-2222", ImageUtil.getImage("pic/camt.jpg")),
+                new Product(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0, ImageUtil.getImage("pic/4thDormMale.jpg")),
+                new Product(3l, "Angkeaw", " Mac book interim", 44.00, 90.00, ImageUtil.getImage("pic/angkeaw.jpg")),
+                new Product(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 , ImageUtil.getImage("pic/clockTower.jpg")),
+                new Product(5l, "I like ice cream", "User for what ?", 200.00, 150.00, ImageUtil.getImage("pic/ilike.jpg")),
+                new Product(6l, "Sport Field", "Call the others", 150.00, 100.00 , ImageUtil.getImage("pic/sportField.jpg")),
+                new Product(7l, "Salatham", "What is it?", 20.00, 260.00, ImageUtil.getImage("pic/salatham.jpg")),
+                new Product(8l, "RB5", "Who still use this ?", 240.00, 2.00, ImageUtil.getImage("pic/rb5.jpg")),
+                new Product(9l, "Faihin", "we hate it", 2.00,10.00, ImageUtil.getImage("pic/faihin.jpg")),
+                new Product(10l, "Economic Building 3", "Very handsome guy use this", 30.00,200.00, ImageUtil.getImage("pic/econBuilding.jpg"))
         };
         productRepository.save(Arrays.asList(initProduct));
 
@@ -64,8 +64,8 @@ public class DatabaseInitializationBean implements InitializingBean {
 
 
         User admin = new User();
-        admin.setName("manager");
-        admin.setUsername("manager");
+        admin.setName("admin");
+        admin.setUsername("admin");
         admin.setEmail("admin@yahoo.com");
         admin.setPassword("123456");
         Set<Role> roles = new HashSet<>();

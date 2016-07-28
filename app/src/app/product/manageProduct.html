@@ -42,8 +42,11 @@
       </div>
       <div class="col-md-5" style="float: right">
         <h3>{{product.name}}</h3>
-        <h4>Subheading</h4>
+        <h4>Description</h4>
         <p>{{product.description}}</p>
+        <h4 ng-show="hasRole('admin')">Coordinates</h4>
+        <p ng-show="hasRole('admin')">x : {{product.x}}</p>
+        <p ng-show="hasRole('admin')">y : {{product.y}}</p>
         <a class="btn btn-primary" ng-href="#/editProduct/{{product.id}}">Edit Product</a>
         <a type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Product</a>
       </div>

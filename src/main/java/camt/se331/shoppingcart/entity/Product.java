@@ -17,31 +17,60 @@ public class Product implements Comparable{
     Long id;
     String name;
     String description;
-    Double totalPrice;
-    Double wholesalePrice;
+    Double x;
+    Double y;
+    String contact;
+    
 
-    public Product(Long id,String name, String description, Double totalPrice, Double wholesalePrice,Image image) {
+    public Product(Long id,String name, String description, Double x, Double y, String contact, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.totalPrice = totalPrice;
-        this.wholesalePrice = wholesalePrice;
+        this.x = x;
+        this.y = y;
+        this.contact = contact;
         this.images.add(image) ;
     }
-    public Product(Long id,String name, String description, Double totalPrice, Double wholesalePrice) {
+
+    public Product(Long id, String name, String description, Double x, Double y, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.totalPrice = totalPrice;
-        this.wholesalePrice = wholesalePrice;
+        this.x = x;
+        this.y = y;
+        this.images.add(image) ;
+    }
+    public Product(Long id,String name, String description, Double x, Double y) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.x = x;
+        this.y = y;
 
     }
-    public Double getWholesalePrice() {
-        return wholesalePrice;
+
+    public Double getX() {
+        return x;
     }
 
-    public void setWholesalePrice(Double wholesalePrice) {
-        this.wholesalePrice = wholesalePrice;
+    public void setX(Double x) {
+        this.x = x;
+    }
+
+    public Double getY() {
+        return y;
+    }
+
+    public void setY(Double y) {
+        this.y = y;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     @Override
@@ -54,8 +83,8 @@ public class Product implements Comparable{
         if (!id.equals(product.id)) return false;
         if (!name.equals(product.name)) return false;
         if (!description.equals(product.description)) return false;
-        if (!totalPrice.equals(product.totalPrice)) return false;
-        return wholesalePrice.equals(product.wholesalePrice);
+        if (!x.equals(product.x)) return false;
+        return y.equals(product.y);
 
     }
 
@@ -64,8 +93,8 @@ public class Product implements Comparable{
         int result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + description.hashCode();
-        result = 31 * result + totalPrice.hashCode();
-        result = 31 * result + wholesalePrice.hashCode();
+        result = 31 * result + x.hashCode();
+        result = 31 * result + y.hashCode();
         return result;
     }
 
@@ -73,11 +102,11 @@ public class Product implements Comparable{
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Image> images = new HashSet<>();
 
-    public Product(Long id,String name, String description, Double totalPrice, Image image) {
+    public Product(Long id,String name, String description, Double x, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.totalPrice = totalPrice;
+        this.x = x;
         this.images.add(image) ;
     }
 
@@ -102,7 +131,7 @@ public class Product implements Comparable{
     };
 
     public Double getNetPrice(){
-        return getTotalPrice()*(1-VatEntity.getInstance().getVat());
+        return getX()*(1-VatEntity.getInstance().getVat());
     }
 
     public Double getTax(){
@@ -112,7 +141,7 @@ public class Product implements Comparable{
     public Product(Long id,String name, String description, Double price) {
         this.name = name;
         this.description = description;
-        this.totalPrice = price;
+        this.x = price;
         this.id = id;
     }
 
@@ -132,13 +161,7 @@ public class Product implements Comparable{
         this.description = description;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 
     @Override
     public int compareTo(Object o) {
