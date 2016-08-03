@@ -93,7 +93,7 @@
     when('/Service',{
       templateUrl: 'app/Extras/services.html'
     }).
-    when('/memberList',{
+    when('/ManageMember',{
       templateUrl: 'app/user/userList.html',
       controller: 'listUserController',
       controllerAs: 'vm'
