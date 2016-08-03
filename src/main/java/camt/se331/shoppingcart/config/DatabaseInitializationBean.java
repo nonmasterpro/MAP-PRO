@@ -30,15 +30,15 @@ public class DatabaseInitializationBean implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         Product[] initProduct = {
                 new Product(1l, "CAMT", "College of art media and technology", 10.5,112.0,"02-222-2222", ImageUtil.getImage("pic/camt.jpg")),
-                new Product(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0, ImageUtil.getImage("pic/4thDormMale.jpg")),
-                new Product(3l, "Angkeaw", " Mac book interim", 44.00, 90.00, ImageUtil.getImage("pic/angkeaw.jpg")),
-                new Product(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 , ImageUtil.getImage("pic/clockTower.jpg")),
-                new Product(5l, "I like ice cream", "User for what ?", 200.00, 150.00, ImageUtil.getImage("pic/ilike.jpg")),
-                new Product(6l, "Sport Field", "Call the others", 150.00, 100.00 , ImageUtil.getImage("pic/sportField.jpg")),
-                new Product(7l, "Salatham", "What is it?", 20.00, 260.00, ImageUtil.getImage("pic/salatham.jpg")),
-                new Product(8l, "RB5", "Who still use this ?", 240.00, 2.00, ImageUtil.getImage("pic/rb5.jpg")),
-                new Product(9l, "Faihin", "we hate it", 2.00,10.00, ImageUtil.getImage("pic/faihin.jpg")),
-                new Product(10l, "Economic Building 3", "Very handsome guy use this", 30.00,200.00, ImageUtil.getImage("pic/econBuilding.jpg"))
+                new Product(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0,"02-222-2222", ImageUtil.getImage("pic/4thDormMale.jpg")),
+                new Product(3l, "Angkeaw", " Mac book interim", 44.00, 90.00,"02-222-2222", ImageUtil.getImage("pic/angkeaw.jpg")),
+                new Product(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 ,"02-222-2222", ImageUtil.getImage("pic/clockTower.jpg")),
+                new Product(5l, "I like ice cream", "User for what ?", 200.00, 150.00,"02-222-2222", ImageUtil.getImage("pic/ilike.jpg")),
+                new Product(6l, "Sport Field", "Call the others", 150.00, 100.00 ,"02-222-2222", ImageUtil.getImage("pic/sportField.jpg")),
+                new Product(7l, "Salatham", "What is it?", 20.00, 260.00,"02-222-2222", ImageUtil.getImage("pic/salatham.jpg")),
+                new Product(8l, "RB5", "Who still use this ?", 240.00, 2.00,"02-222-2222", ImageUtil.getImage("pic/rb5.jpg")),
+                new Product(9l, "Faihin", "we hate it", 2.00,10.00,"02-222-2222", ImageUtil.getImage("pic/faihin.jpg")),
+                new Product(10l, "Economic Building 3", "Very handsome guy use this", 30.00,200.00,"02-222-2222", ImageUtil.getImage("pic/econBuilding.jpg"))
         };
         productRepository.save(Arrays.asList(initProduct));
 

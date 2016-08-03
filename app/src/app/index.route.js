@@ -90,11 +90,13 @@
     when('/Pricing',{
       templateUrl: 'app/Extras/pricing.html'
     }).
-    when('/Service',{
-      templateUrl: 'app/Extras/services.html'
+    when('/memberList',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
     }).
     when('/ManageMember',{
-      templateUrl: 'app/user/userList.html',
+      templateUrl: 'app/user/ManageUser.html',
       controller: 'listUserController',
       controllerAs: 'vm'
     }).

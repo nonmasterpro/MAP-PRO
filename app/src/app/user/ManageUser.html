@@ -42,7 +42,8 @@
         <th translate>listUser.username</th>
         <th translate>listUser.email</th>
         <th translate>listUser.role</th>
-        
+        <th translate>listUser.edit</th>
+        <th translate>listUser.delete</th>
 
       </tr>
       <tr ng-repeat="user in vm.users| filter:name">
@@ -53,7 +54,13 @@
         <td>
           <a ng-href="#/editRole/{{user.id}}"><div ng-repeat="role in user.roles">{{role.roleName}}</div></a>
         </td>
-
+        <td class="text-center" ><a ng-href="#/editUser/{{user.id}}"> <span
+          class="glyphicon glyphicon-edit"
+          aria-hidden="true"></span></a></td>
+        <td class="text-center" ><a ng-href="#/listUser"><span
+          class="glyphicon glyphicon-remove-circle"
+          aria-hidden="true"
+          ng-click="deleteUser(user.id)"></span></a></td>
 
       </tr>
 
