@@ -64,12 +64,14 @@
           <!--</li>-->
 
           <li>
-            <a href="#/Product1" translate>menu.Product</a>
+            <a href="#/Product1" ng-show="hasRole('admin')" translate>menu.Product</a>
           </li>
 
           <li>
-            <a href="#/shoppingCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" translate>menu.shoppingcart</a>
+            <a href="#/memberList" ng-show="hasRole('admin')" >Member</a>
           </li>
+
+
 
           <li>
             <button class="btn btn-primary btn-nav" data-toggle="modal" data-target="#Modal-Login" ng-hide="user" translate>menu.Login</button>

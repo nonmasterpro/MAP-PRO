@@ -1,0 +1,178 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-6">ข้อมุลสมาชิก</div>
+        <div class="col-md-6">ที่อยู่สำหรับจัดส่งสินค้า</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <form name="editform" novalidate flow-init>
+
+            <div class="form-group">
+              <label for="name">ชื่อ :</label>
+              <input ng-model="vm.user.name" class="form-control" id="name" name="name" placeholder="First name"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.name.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name :</label>
+              <input ng-model="vm.user.lastName" class="form-control" id="lastName"
+                     placeholder="Last name" name="lastName" required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.lastName.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">อีเมล์ :</label>
+              <input ng-model="vm.user.email" name="email" class="form-control" id="email"
+                     placeholder="E-mail" type="email" required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.email.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="phonenumber">เบอร์โทรศัพ์ :</label>
+              <input ng-model="vm.user.phonenumber" name="phonenumber" class="form-control" id="phonenumber"
+                     placeholder="phonenumber" type="text" ng-minlength="8" ng-maxlength="10"/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.phonenumber.$error.number">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Enter the number!!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="username">ชื่อผู้ใช้ :</label>
+              <input ng-model="vm.user.username" name="username" class="form-control" id="username"
+                     placeholder="username" type="text" required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.username.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Username is Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">รหัสผ่าน :</label>
+              <input ng-model="vm.user.password" name="password" class="form-control" id="password"
+                     placeholder="password" type="password" ng-maxlength="20" ng-minlength="6" required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.password.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Password is Required!
+              </div>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="vm.register()">Register</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <form name="editform" novalidate flow-init>
+
+            <div class="form-group">
+              <label for="houseNumber">บ้านเลขที่ :</label>
+              <input ng-model="vm.user.address.houseNumber" class="form-control" id="houseNumber"
+                     name="houseNumber"
+                     placeholder="บ้านเลขที่"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.houseNumber.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="village">หมู่บ้าน :</label>
+              <input ng-model="vm.user.address.village" class="form-control" id="village" name="village"
+                     placeholder="หมู่บ้าน"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.village.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="villageNumber">หมู่ที่ :</label>
+              <input ng-model="vm.user.address.villageNumber" class="form-control" id="villageNumber"
+                     name="villageNumber"
+                     placeholder="หมู่ที่"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.villageNumber.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subDistrict">ตำบล :</label>
+              <input ng-model="vm.user.address.subDistrict" class="form-control" id="subDistrict" name="subDistrict"
+                     placeholder="ตำบล"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.subDistrict.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="district">อำเภอ :</label>
+              <input ng-model="vm.user.address.district" class="form-control" id="district" name="district"
+                     placeholder="อำเภอ"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.district.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="province">จังหวัด :</label>
+              <input ng-model="vm.user.address.province" class="form-control" id="province" name="province"
+                     placeholder="จังหวัด"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.province.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="postcode">รหัสไปรษณีย์ :</label>
+              <input ng-model="vm.user.address.postcode" class="form-control" id="postcode" name="postcode"
+                     placeholder="รหัสไปรษณีย์"
+                     required/>
+              <div class="alert alert-danger" role="alert" ng-show="editform.postcode.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Required!
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>

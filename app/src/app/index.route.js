@@ -93,8 +93,10 @@
     when('/Service',{
       templateUrl: 'app/Extras/services.html'
     }).
-    when('/SideBar',{
-      templateUrl: 'app/Extras/sidebar.html'
+    when('/memberList',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
     }).
 
     // when('/addProduct',{

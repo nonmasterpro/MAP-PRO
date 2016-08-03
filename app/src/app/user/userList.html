@@ -1,0 +1,69 @@
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong> Success adding a new user
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong> Success edit the user
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong> Success delete the user
+</div>
+<div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Member List</div>
+    <div class="panel-body">
+      <div class="col-lg-4">
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchUser(name)">Search</button>
+                </span>
+        </div>
+        <!-- /input-group -->
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+
+
+    <!-- Table -->
+    <table class="table table-bordered" >
+      <tr class="active">
+        <th >#</th>
+        <th translate>listUser.name</th>
+        <th translate>listUser.username</th>
+        <th translate>listUser.email</th>
+        <th translate>listUser.role</th>
+        <th translate>listUser.edit</th>
+        <th translate>listUser.delete</th>
+
+      </tr>
+      <tr ng-repeat="user in vm.users| filter:name">
+        <td>{{$index+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <a ng-href="#/editRole/{{user.id}}"><div ng-repeat="role in user.roles">{{role.roleName}}</div></a>
+        </td>
+        <td class="text-center" ><a ng-href="#/editUser/{{user.id}}"> <span
+          class="glyphicon glyphicon-edit"
+          aria-hidden="true"></span></a></td>
+        <td class="text-center" ><a ng-href="#/listUser"><span
+          class="glyphicon glyphicon-remove-circle"
+          aria-hidden="true"
+          ng-click="deleteUser(user.id)"></span></a></td>
+
+      </tr>
+
+    </table>
+  </div>
+</div>

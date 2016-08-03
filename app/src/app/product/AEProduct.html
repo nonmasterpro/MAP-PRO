@@ -76,6 +76,19 @@
             Description is Required!
           </div>
 
+
+          <div class="form-group">
+            <label for="productcontact">Contact :</label>
+            <input ng-model="product.contact" class="form-control" id="productcontact"
+                   placeholder="contact" name="productcontact" required/>
+
+            <div class="alert alert-danger" role="alert" ng-show="editform.productcontact.$error.required">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              Contact is Required!
+            </div>
+
+
         </div>
         <div class="form-group">
           <label for="productprice">X :</label>
