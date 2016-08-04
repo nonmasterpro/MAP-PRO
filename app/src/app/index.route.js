@@ -14,27 +14,27 @@
       templateUrl: 'app/main/main.html'
     }).
     when('/Product1',{
-      templateUrl: 'app/product/ProductT1.html',
+      templateUrl: 'app/product/PlaceT1.html',
       controller: 'listProductController',
       controllerAs: 'vm'
     }).
     when('/Product2',{
-      templateUrl: 'app/product/ProductT2.html',
+      templateUrl: 'app/product/PlaceT2.html',
       controller: 'listProductController',
       controllerAs: 'vm'
     }).
     when('/Product3',{
-      templateUrl: 'app/product/ProductT3.html',
+      templateUrl: 'app/product/PlaceT3.html',
       controller: 'listProductController',
       controllerAs: 'vm'
     }).
     when('/Product4',{
-      templateUrl: 'app/product/ProductT4.html',
+      templateUrl: 'app/product/PlaceT4.html',
       controller: 'listProductController',
       controllerAs: 'vm'
     }).
     when('/ProductItem/:id',{
-      templateUrl: 'app/product/ProductItem.html',
+      templateUrl: 'app/product/PlaceItem.html',
       controller: 'viewProductController',
       controllerAs: 'vm'
     }).
@@ -49,17 +49,17 @@
       controllerAs: 'vm'
     }).
     when('/ManageProduct',{
-      templateUrl: 'app/product/manageProduct.html',
+      templateUrl: 'app/product/managePlace.html',
       controller: 'listProductController',
       controllerAs: 'vm'
     }).
     when('/addProduct',{
-        templateUrl: 'app/product/AEProduct.html',
+        templateUrl: 'app/product/AEPlace.html',
         controller: 'addProductController',
         controllerAs: 'addProductController'
       }).
       when('/editProduct/:id',{
-        templateUrl: 'app/product/AEProduct.html',
+        templateUrl: 'app/product/AEPlace.html',
         controller: 'editProductController',
         controllerAs: 'editProductController'
       }).
@@ -78,17 +78,25 @@
     when('/BlogPost',{
       templateUrl: 'app/Extras/blog-post.html'
     }).
-    when('/Contact',{
-      templateUrl: 'app/Extras/contact.html'
+    when('/listUser',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
     }).
-    when('/FAQ',{
-      templateUrl: 'app/Extras/faq.html'
+    when('/editP',{
+      templateUrl: 'app/product/PlaceT1.html',
+      controller: 'listProductController',
+      controllerAs: 'vm'
     }).
-    when('/FullWidth',{
-      templateUrl: 'app/Extras/full-width.html'
+    when('/DelP',{
+      templateUrl: 'app/product/PlaceT1.html',
+      controller: 'listProductController',
+      controllerAs: 'vm'
     }).
-    when('/Pricing',{
-      templateUrl: 'app/Extras/pricing.html'
+    when('/addP',{
+      templateUrl: 'app/product/PlaceT1.html',
+      controller: 'listProductController',
+      controllerAs: 'vm'
     }).
     when('/memberList',{
       templateUrl: 'app/user/userList.html',
@@ -102,17 +110,17 @@
     }).
 
     // when('/addProduct',{
-    //   templateUrl: 'app/product/editProduct.html',
+    //   templateUrl: 'app/product/editPlace.html',
     //   controller: 'addProductController',
     //   controllerAs: 'addProductController'
     // }).
     // when('/editProduct/:id',{
-    //   templateUrl: 'app/product/editProduct.html',
+    //   templateUrl: 'app/product/editPlace.html',
     //   controller: 'editProductController',
     //   controllerAs: 'editProductController'
     // }).
     // when('/listProduct',{
-    //   templateUrl: 'app/product/productList.html',
+    //   templateUrl: 'app/product/placeList.html',
     //   controller: 'listProductController',
     //   controllerAs: 'vm'
     // }).

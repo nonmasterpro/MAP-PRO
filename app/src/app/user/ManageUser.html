@@ -57,10 +57,9 @@
         <td class="text-center" ><a ng-href="#/editUser/{{user.id}}"> <span
           class="glyphicon glyphicon-edit"
           aria-hidden="true"></span></a></td>
-        <td class="text-center" ><a ng-href="#/listUser"><span
-          class="glyphicon glyphicon-remove-circle"
-          aria-hidden="true"
-          ng-click="deleteUser(user.id)"></span></a></td>
+        <td class="text-center" ><a ng-href="#/listUser"
+          type="button" class="btn btn-danger"
+          ng-click="vm.deleteUser(user.id)"></a></td>
 
       </tr>
 

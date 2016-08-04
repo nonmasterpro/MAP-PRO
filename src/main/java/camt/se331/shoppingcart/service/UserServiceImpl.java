@@ -64,4 +64,15 @@ public class UserServiceImpl implements UserService {
     public User getUser(Long id) {
         return userRepository.findOne(id);
     }
+
+    @Override
+    public User updateUser(User user) {
+        return userDao.updateUser(user);
+    }
+
+    @Override
+    public User deleteUser(Long id) {
+        User user = getUser(id);
+        return userDao.deleteUser(user);
+    }
 }

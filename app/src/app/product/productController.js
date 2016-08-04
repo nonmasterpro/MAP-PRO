@@ -40,7 +40,7 @@
         flowFiles.upload();
 
         vm.addSuccess = true;
-        $location.path("/index");
+
       });
     }
 
@@ -61,11 +61,11 @@
     }).$promise;
 
 
-    $scope.$on('$locationChangeStart', function () {
-      $rootScope.addSuccess = false;
-      $rootScope.editSuccess = false;
-      $rootScope.deleteSuccess = false;
-    });
+    //$scope.$on('$locationChangeStart', function () {
+    //  $rootScope.addSuccess = false;
+    //  $rootScope.editSuccess = false;
+    //  $rootScope.deleteSuccess = false;
+    //});
 
     vm.deleteProduct = function (id) {
       var answer = confirm("Do you want to delete the product?");
@@ -83,27 +83,27 @@
       });
     }
 
-    vm.addToCart = function (product) {
-      $rootScope.HeadSuccess=null;
-      $rootScope.HeadFail=null;
-      $rootScope.result=null;
-      $rootScope.error=null;
-      product.images = null;
-      cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
-        //success event
-        $rootScope.shoppingCart = shoppingCart;
-        $rootScope.HeadSuccess ="Status";
-        $rootScope.result = "Add Product Success";
-
-      }, function (error) {
-        // fail event
-        if(error.status=="401"){
-          $rootScope.HeadFail ="Warning";
-          $rootScope.error="Add Product Fail";
-        }
-      })
-      $route.reload();
-    }
+    //vm.addToCart = function (product) {
+    //  $rootScope.HeadSuccess=null;
+    //  $rootScope.HeadFail=null;
+    //  $rootScope.result=null;
+    //  $rootScope.error=null;
+    //  product.images = null;
+    //  cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
+    //    //success event
+    //    $rootScope.shoppingCart = shoppingCart;
+    //    $rootScope.HeadSuccess ="Status";
+    //    $rootScope.result = "Add Product Success";
+    //
+    //  }, function (error) {
+    //    // fail event
+    //    if(error.status=="401"){
+    //      $rootScope.HeadFail ="Warning";
+    //      $rootScope.error="Add Product Fail";
+    //    }
+    //  })
+    //  $route.reload();
+    //}
 
   }
 
@@ -166,7 +166,7 @@
         flowFiles.upload();
 
         vm.editSuccess = true;
-        $location.path("/index");
+
       });
     }
 

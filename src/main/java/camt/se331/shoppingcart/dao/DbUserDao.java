@@ -45,5 +45,17 @@ public class DbUserDao  implements UserDao{
         user.setRoles(roles);
         return userRepository.save(user);
     }
+
+    @Override
+    public User deleteUser(User user) {
+        userRepository.delete(user);
+        user.setId(null);
+        return user;
+    }
+
+    @Override
+    public User updateUser (User user) {
+        return userRepository.save(user);
+    }
 }
 

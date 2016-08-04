@@ -38,4 +38,13 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @RequestMapping(value = "customer/{id}",method = RequestMethod.PUT)
+    public  User edit(@PathVariable("id") Long id,@RequestBody User user, BindingResult bindingResult){
+        return userService.updateUser(user);}
+
+    @RequestMapping(value = "customer/{id}",method = RequestMethod.DELETE)
+    public  User edit(@PathVariable("id") Long id){
+        return userService.deleteUser(id);
+    }
+
 }

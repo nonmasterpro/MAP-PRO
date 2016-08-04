@@ -17,6 +17,22 @@
       vm.users = data;
     }).$promise;
 
+    //$scope.$on('$locationChangeStart', function () {
+    //  $rootScope.addSuccess = false;
+    //  $rootScope.editSuccess = false;
+    //  $rootScope.deleteSuccess = false;
+    //});
+
+    vm.deleteUser = function (id) {
+      var answer = confirm("Do you want to delete ?");
+      if (answer) {
+        userService.delete({id: id}, function () {
+          $rootScope.deleteSuccess = true;
+          $route.reload();
+        })
+      }
+    }
+
     vm.searchUser = function (name) {
       queryUserService.query({name: name}, function (data) {
         vm.users = data;
@@ -36,6 +52,8 @@
         $rootScope.addSuccess = true;
         $location.path("userList");
       });
+
+
     };
 
   }
