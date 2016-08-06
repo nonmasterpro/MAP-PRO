@@ -4,13 +4,13 @@
   <!-- Page Heading/Breadcrumbs -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Manage Product
+      <h1 class="page-header">Manage Place
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/#index">Home</a>
         </li>
-        <li class="active">Manage Product</li>
+        <li class="active">Manage Place</li>
       </ol>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
   <div class="col-md-12" style="margin-top: 25px!important;">
     <a type="button" href="#/addProduct" class="btn btn-danger" style="margin-left: 50%;border-radius: 5px">
-    Add Product
+    Add Place
     </a>
   </div>
 
@@ -44,11 +44,17 @@
         <h3>{{product.name}}</h3>
         <h4>Description</h4>
         <p>{{product.description}}</p>
+        <h4>Contact</h4>
+        <p>{{product.contact}}</p>
+        <h4>Type</h4>
+        <p>{{product.type}}</p>
+        <h4>Website</h4>
+        <p>{{product.website}}</p>
         <h4 ng-show="hasRole('admin')">Coordinates</h4>
         <p ng-show="hasRole('admin')">x : {{product.x}}</p>
         <p ng-show="hasRole('admin')">y : {{product.y}}</p>
-        <a class="btn btn-primary" ng-href="#/editProduct/{{product.id}}">Edit Product</a>
-        <a href="#/DelP" type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Product</a>
+        <a class="btn btn-primary" ng-href="#/editProduct/{{product.id}}">Edit Place</a>
+        <a href="#/DelP" type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Place</a>
       </div>
     </div>
   </div>

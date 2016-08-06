@@ -60,14 +60,43 @@
 
   /** @ngInject */
   function editUserController($route, $routeParams, $location, $rootScope, userService, $http) {
-    var vm = this;
+
+    var vm = $scope;
+    vm.addUser = false;
+    vm.editUser = true;
+    var id = $routeParams.id;
+    userService.get({id:id},
+      // success function
+      function(data){
+        vm.user=data;
+      }
+    )
+
+
+    vm.editUser = function (flowFiles) {
+      //$http.put("/product", $scope.product).then(function () {
+      userService.update({id: vm.user.id}, vm.user, function (data) {
+        var userid = data.id;
+        flowFiles.opts.target = 'http://localhost:8080/productImage/add';
+        flowFiles.opts.testChunks = false;
+        flowFiles.opts.query = {userid:userid};
+        flowFiles.upload();
+
+        vm.editSuccess = true;
+
+      });
+    }
+
+
+
+    /*var vm = this;
     var id = $routeParams.id;
     userService.get({id: id},
       // success function
       function (data) {
         vm.user = data;
       }
-    );
+    );*/
 
     /* vm.editProduct = function (flowFiles) {  //$http.put("/product", $scope.product).then(function () {
      productService.update({id: vm.product.id}, vm.product, function () {

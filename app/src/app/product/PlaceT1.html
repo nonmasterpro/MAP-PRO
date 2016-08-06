@@ -13,7 +13,7 @@
                     <li class="active">Place</li>
                   <div class="dropdown Fix">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      View Type
+                      View Option
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                       <a href="#/Product1" class="list-group-item"> 1 Column View </a>
@@ -48,6 +48,10 @@
                 <p>{{product.description}}</p>
               <h3>Contact</h3>
               <p>{{product.contact}}</p>
+              <h3>Type</h3>
+              <p>{{product.type}}</p>
+              <h3>Website</h3>
+              <p>{{product.website}}</p>
               <hr>
               <h4 ng-show="hasRole('admin')||hasRole('userwholesale')">Coordinates</h4>
               <p ng-show="hasRole('admin')">x : {{product.x}}</p>

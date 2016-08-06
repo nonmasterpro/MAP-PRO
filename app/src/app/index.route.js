@@ -38,16 +38,16 @@
       controller: 'viewProductController',
       controllerAs: 'vm'
     }).
-    when('/shoppingCart/:id',{
+    /*when('/shoppingCart/:id',{
       templateUrl: 'app/shoppingcart/shoppingCart.html',
       controller: 'showShoppingCartController',
       controllerAs: 'vm'
-    }).
-    when('/shoppingCart',{
+    }).*/
+    /*when('/shoppingCart',{
       templateUrl: 'app/shoppingcart/shoppingCart.html',
       controller: 'shoppingCartController',
       controllerAs: 'vm'
-    }).
+    }).*/
     when('/ManageProduct',{
       templateUrl: 'app/product/managePlace.html',
       controller: 'listProductController',

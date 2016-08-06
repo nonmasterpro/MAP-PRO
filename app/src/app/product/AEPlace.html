@@ -4,16 +4,16 @@
   <!-- Page Heading/Breadcrumbs -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 ng-show="editProduct" class="page-header">Edit Product
+      <h1 ng-show="editProduct" class="page-header">Edit Place
       <small>{{product.name}}</small>
     </h1>
-      <h1 ng-show="addProduct" class="page-header">Add Product
+      <h1 ng-show="addProduct" class="page-header">Add Place
       </h1>
       <ol class="breadcrumb">
         <li><a href="#/index">Home</a>
         </li>
-        <li class="active"  ng-show="editProduct">Edit Product</li>
-        <li class="active"  ng-show="addProduct">Add Product</li>
+        <li class="active"  ng-show="editProduct">Edit Place</li>
+        <li class="active"  ng-show="addProduct">Add Place</li>
       </ol>
     </div>
   </div>
@@ -22,29 +22,9 @@
   <div class="row">
     <div class="col-md-4">
     <form name="editform" novalidate flow-init>
-        <div class="form-group">
-          <input data-ng-model="ImageInput" type="file" flow-btn/>
-          <table>
-        <tr ng-repeat="file in $flow.files">
-          <td>{{$index+1}}</td>
-          <td>{{file.name}}</td>
-          <td>
-            <div class="resizeImage">
-            <img flow-img="$flow.files[{{$index}}]">
-          </div>
-          </td>
-        </tr>
-          </table>
-      </div>
 
-      <div ng-show="editProduct">
-        <div style="position: relative" ng-repeat="image in product.images" class="text-center">
-          <img ng-src="data:{{image.contentType}};base64, {{image.content}}" class="thumbnail"/>
-          <button style="position: absolute; top: 5px; left: 5px; z-index: 999" href="#" ng-click="removeImage(product.id, image.id)">
-            <i class="glyphicon glyphicon-remove-circle"></i>
-          </button>
-        </div>
-      </div>
+
+
 
       <!--<div ng-show="addProduct">-->
         <!--<div style="position: relative" ng-repeat="image in product.images" class="text-center">-->
@@ -65,6 +45,8 @@
             Product name is Required!
           </div>
         </div>
+
+
         <div class="form-group">
           <label for="productdescription">Description :</label>
           <input ng-model="product.description" class="form-control" id="productdescription"
@@ -77,6 +59,8 @@
           </div>
 
         </div>
+
+
           <div class="form-group">
             <label for="productcontact">Contact :</label>
             <input ng-model="product.contact" class="form-control" id="productcontact"
@@ -87,13 +71,37 @@
               <span class="sr-only">Error:</span>
               Contact is Required!
             </div>
-
-
         </div>
+
+      <div class="form-group">
+        <label for="placetype">Type :</label>
+        <input ng-model="product.type" class="form-control" id="placetype"
+               placeholder="Type" name="placetype" required/>
+
+        <div class="alert alert-danger" role="alert" ng-show="editform.placetype.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Type are Building,Sportfield,Cafe,Reataurant,<br>ATM,CarParking,Dormitory and Landmark
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="placeweb">Website :</label>
+        <input ng-model="product.website" class="form-control" id="placeweb"
+               placeholder="Website" name="placeweb" required/>
+
+        <div class="alert alert-danger" role="alert" ng-show="editform.placeweb.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Website is Required!
+        </div>
+      </div>
+
+
         <div class="form-group">
-          <label for="productprice">X :</label>
+          <label for="productprice">X Coordinates:</label>
           <input ng-model="product.x" name="productprice" class="form-control" id="productprice"
-                 placeholder="price" type="number" required/>
+                 placeholder="X Coordinates" type="number" required/>
 
           <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.required">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -108,9 +116,9 @@
         </div>
 
       <div class="form-group">
-        <label for="productprice">Y :</label>
+        <label for="productprice">Y Coordinates:</label>
         <input ng-model="product.y" name="wholesalePrice" class="form-control" id="wholesalePrice"
-               placeholder="price" type="number" required/>
+               placeholder="Y Coordinates" type="number" required/>
 
         <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.required">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -123,6 +131,31 @@
           Enter the number!!
         </div>
       </div>
+
+      <h3>Picture</h3>
+      <div class="form-group">
+        <input data-ng-model="ImageInput" type="file" flow-btn/>
+        <table>
+          <tr ng-repeat="file in $flow.files">
+            <td>{{$index+1}}</td>
+            <td>{{file.name}}</td>
+            <td>
+              <div class="resizeImage">
+                <img flow-img="$flow.files[{{$index}}]">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div ng-show="editProduct">
+        <div style="position: relative" ng-repeat="image in product.images" class="text-center">
+          <img ng-src="data:{{image.contentType}};base64, {{image.content}}" class="thumbnail"/>
+          <button style="position: absolute; top: 5px; left: 5px; z-index: 999" href="#" ng-click="removeImage(product.id, image.id)">
+            <i class="glyphicon glyphicon-remove-circle"></i>
+          </button>
+        </div>
+      </div>
+
       <a ng-href="#/addP"><button type="submit" class="btn btn-default" ng-click="addProduct($flow)" ng-show="addProduct">Add</button></a>
       <a ng-href="#/editP"><button type="submit" class="btn btn-default" ng-click="editProduct()" ng-show="editProduct">Edit</button></a>
     </form>

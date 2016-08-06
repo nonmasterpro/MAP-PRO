@@ -20,9 +20,37 @@ public class Product implements Comparable{
     Double x;
     Double y;
     String contact;
-    
+    String type;
+    String website;
 
-    public Product(Long id,String name, String description, Double x, Double y, String contact, Image image) {
+
+    public Product(Long id,String name, String description, Double x, Double y, String contact, String type, String website, Image image) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.x = x;
+        this.y = y;
+        this.contact = contact;
+        this.type = type;
+        this.website = website;
+        this.images.add(image) ;
+    }
+
+
+    public Product(Long id,String name, String description, Double x, Double y, String contact, String type, Image image) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.x = x;
+        this.y = y;
+        this.contact = contact;
+        this.type = type;
+        this.images.add(image) ;
+    }
+
+
+
+    public Product(Long id, String name, String description, Double x, Double y, String contact, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -72,6 +100,14 @@ public class Product implements Comparable{
     public void setContact(String contact) {
         this.contact = contact;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
+
+    public String getWebsite() { return website; }
+
+    public void setWebsite(String website) { this.website = website; }
 
     @Override
     public boolean equals(Object o) {

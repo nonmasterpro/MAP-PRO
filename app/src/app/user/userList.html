@@ -41,7 +41,8 @@
         <th translate>listUser.name</th>
         <th translate>listUser.username</th>
         <th translate>listUser.email</th>
-        <th translate>listUser.role</th>
+        <th >password</th>
+        <!--<th translate>listUser.role</th>-->
 
 
       </tr>
@@ -50,9 +51,10 @@
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
         <td>{{user.email}}</td>
-        <td>
+        <td>{{user.password}}</td>
+        <!--<td>
           <a ng-href="#/editRole/{{user.id}}"><div ng-repeat="role in user.roles">{{role.roleName}}</div></a>
-        </td>
+        </td>-->
 
 
       </tr>
