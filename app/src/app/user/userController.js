@@ -30,8 +30,12 @@
         userService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
           $route.reload();
+
+
         })
       }
+
+
     }
 
     vm.searchUser = function (name) {
@@ -78,6 +82,10 @@
 
         vm.addSuccess = true;
 
+        $scope.reloadRoute = function() {
+          $window.location.reload();
+        }
+
       });
     }
 
@@ -113,6 +121,9 @@
 
         vm.editSuccess = true;
 
+        $scope.reloadRoute = function() {
+          $window.location.reload();
+        }
       });
     }
 

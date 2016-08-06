@@ -41,6 +41,7 @@
 
         vm.addSuccess = true;
 
+
       });
     }
 
@@ -73,6 +74,7 @@
         productService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
           $route.reload();
+
         })
       }
     }
@@ -166,6 +168,10 @@
         flowFiles.upload();
 
         vm.editSuccess = true;
+
+        $scope.reloadRoute = function() {
+          $window.location.reload();
+        }
 
       });
     }
