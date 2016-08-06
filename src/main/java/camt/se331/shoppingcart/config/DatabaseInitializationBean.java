@@ -59,8 +59,8 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         // add user
         Role adminRole = new Role("admin");
-       /* Role userRole = new Role("userretail");
-        Role userRole2 = new Role("userwholesale");*/
+        Role userRole = new Role("user");
+        Role userRole2 = new Role("userwholesale");
 
 
         User admin = new User();
@@ -77,22 +77,22 @@ public class DatabaseInitializationBean implements InitializingBean {
         user.setUsername("chef");
         user.setEmail("user@yahoo.com");
         user.setPassword("123456");
-        /*Set<Role> roles2 = new HashSet<>();
+        Set<Role> roles2 = new HashSet<>();
         roles2.add(userRole);
-        user.setRoles(roles2);*/
-
+        user.setRoles(roles2);
+/*
         User user2 = new User();
         user2.setName("waiter");
         user2.setUsername("waiter");
         user2.setEmail("user@yahoo.com");
         user2.setPassword("123456");
-/*        Set<Role> roles3 = new HashSet<>();
+        Set<Role> roles3 = new HashSet<>();
         roles3.add(userRole2);
         user2.setRoles(roles3);*/
 
 
         userRepository.save(admin);
         userRepository.save(user);
-        userRepository.save(user2);
+//        userRepository.save(user2);
     }
 }

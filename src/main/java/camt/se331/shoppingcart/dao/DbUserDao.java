@@ -39,7 +39,7 @@ public class DbUserDao  implements UserDao{
 
     @Override
     public User addUser(User user) {
-        Role customerRole = new Role("Retail Customer");
+        Role customerRole = new Role("user");
         Set<Role> roles = new HashSet<>();
         roles.add(customerRole);
         user.setRoles(roles);
