@@ -66,17 +66,25 @@
     when('/About',{
       templateUrl: 'app/Extras/about.html'
     }).
-    when('/404Page',{
-      templateUrl: 'app/Extras/404.html'
+    when('/addU',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
     }).
-    when('/Blog1',{
-      templateUrl: 'app/Extras/blog-home-1.html'
+    when('/addUser',{
+      templateUrl: 'app/user/AEUser.html',
+      controller: 'addUserController',
+      controllerAs: 'addUserController'
     }).
-    when('/Blog2',{
-      templateUrl: 'app/Extras/blog-home-2.html'
+    when('/editU',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
     }).
-    when('/BlogPost',{
-      templateUrl: 'app/Extras/blog-post.html'
+    when('/editUser/:id',{
+      templateUrl: 'app/user/AEUser.html',
+      controller: 'editUserController',
+      controllerAs: 'editUserController'
     }).
     when('/listUser',{
       templateUrl: 'app/user/userList.html',

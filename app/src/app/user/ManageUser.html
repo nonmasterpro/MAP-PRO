@@ -1,5 +1,5 @@
 
-<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
+<!--<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
   <strong>Success!</strong> Success adding a new user
@@ -14,10 +14,27 @@
     <span aria-hidden="true">&times;</span></button>
   <strong>Success!</strong> Success delete the user
 </div>
-<div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-  <div class="panel panel-default">
+<div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">-->
+<div class="container">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="col-lg-12">
+    <h1 class="page-header">Manage Member
+      <small>Admin</small>
+
+    </h1>
+
+
+    <ol class="breadcrumb">
+      <li><a href="/#index">Home</a>
+      </li>
+      <li class="active">Manage Member</li>
+    </ol>
+  </div>
+
+
     <!-- Default panel contents -->
-    <div class="panel-heading">Member List</div>
+
     <div class="panel-body">
       <div class="col-lg-4">
       </div>
@@ -33,6 +50,13 @@
       <!-- /.col-lg-6 -->
     </div>
 
+  <div class="col-md-12" style="margin-top: 25px!important;">
+    <a type="button" href="#/addUser" class="btn btn-danger" style="margin-left: 50%;border-radius: 5px">
+      Add User
+    </a>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 40px; border-bottom: 1px dashed #c1c1c1"></div>
 
     <!-- Table -->
     <table class="table table-bordered" >
@@ -66,5 +90,6 @@
       </tr>
 
     </table>
-  </div>
+
+</div>
 </div>

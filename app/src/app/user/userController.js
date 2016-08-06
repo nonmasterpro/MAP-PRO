@@ -8,6 +8,7 @@
     .module('app')
     .controller('listUserController', listUserController)
     .controller('registerController', registerController)
+    .controller('addUserController', addUserController)
     .controller('editUserController', editUserController);
 
   /** @ngInject */
@@ -59,7 +60,35 @@
   }
 
   /** @ngInject */
-  function editUserController($route, $routeParams, $location, $rootScope, userService, $http) {
+  function addUserController($http,$scope, $location, $rootScope, userService) {
+    var vm = $scope;
+    vm.user = {};
+    vm.addUser = true;
+    vm.editUser = false;
+    vm.addUser = function (flowFiles) {
+      userService.save(vm.user, function (data) {
+        // after adding the object, add a new picture
+        // get the product id which the image will be addded
+        var userid = data.id;
+        // set location
+        flowFiles.opts.target = 'http://localhost:8080/userImage/add';
+        flowFiles.opts.testChunks = false;
+        flowFiles.opts.query = {userid: userid};
+        flowFiles.upload();
+
+        vm.addSuccess = true;
+
+      });
+    }
+
+    vm.clearSearch = function() {
+      vm.ImageInput = "";
+    }
+
+  }
+
+  /** @ngInject */
+  function editUserController($route, $routeParams, $location, $rootScope, userService, $http,$scope ) {
 
     var vm = $scope;
     vm.addUser = false;
@@ -77,7 +106,7 @@
       //$http.put("/product", $scope.product).then(function () {
       userService.update({id: vm.user.id}, vm.user, function (data) {
         var userid = data.id;
-        flowFiles.opts.target = 'http://localhost:8080/productImage/add';
+        flowFiles.opts.target = 'http://localhost:8080/userImage/add';
         flowFiles.opts.testChunks = false;
         flowFiles.opts.query = {userid:userid};
         flowFiles.upload();
