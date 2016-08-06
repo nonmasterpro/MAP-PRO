@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
 
   <!-- Page Heading/Breadcrumbs -->
   <div class="row">
@@ -36,7 +36,7 @@
       <!--</div>-->
 
         <div class="form-group">
-          <label for="productname">name :</label>
+          <label for="productname">Name :</label>
           <input ng-model="product.name" class="form-control" id="productname" name="productname" placeholder="name" required/>
 
           <div class="alert alert-danger" role="alert" ng-show="editform.productname.$error.required">
@@ -75,13 +75,23 @@
 
       <div class="form-group">
         <label for="placetype">Type :</label>
-        <input ng-model="product.type" class="form-control" id="placetype"
-               placeholder="Type" name="placetype" required/>
+        <select ng-model="product.type" class="form-control" id="placetype"
+               placeholder="Type select" name="placetype" required>
+          <option value="">
+          <option value="Building">Building
+          <option value="Sportfield">Sportfield
+          <option value="Cafe">Cafe
+          <option value="Reataurant">Reataurant
+          <option value="ATM">ATM
+          <option value="CarParking">CarParking
+          <option value="Dormitory">Dormitory
+          <option value="Landmark">Landmark
+        </select>
 
         <div class="alert alert-danger" role="alert" ng-show="editform.placetype.$error.required">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
           <span class="sr-only">Error:</span>
-          Type are Building,Sportfield,Cafe,Reataurant,<br>ATM,CarParking,Dormitory and Landmark
+          Type is Required!
         </div>
       </div>
 
