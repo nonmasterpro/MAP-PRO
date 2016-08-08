@@ -66,11 +66,11 @@
     when('/About',{
       templateUrl: 'app/Extras/about.html'
     }).
-    when('/addU',{
-      templateUrl: 'app/user/userList.html',
-      controller: 'listUserController',
-      controllerAs: 'vm'
-    }).
+    //when('/addU',{
+    //  templateUrl: 'app/user/userList.html',
+    //  controller: 'listUserController',
+    //  controllerAs: 'vm'
+    //}).
     when('/addUser',{
       templateUrl: 'app/user/AEUser.html',
       controller: 'addUserController',

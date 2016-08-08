@@ -54,7 +54,7 @@
         <p ng-show="hasRole('admin')">x : {{product.x}}</p>
         <p ng-show="hasRole('admin')">y : {{product.y}}</p>
         <a class="btn btn-primary" ng-href="#/editProduct/{{product.id}}">Edit Place</a>
-        <a href="#/DelP" type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Place</a>
+        <button type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Place</button>
       </div>
     </div>
   </div>

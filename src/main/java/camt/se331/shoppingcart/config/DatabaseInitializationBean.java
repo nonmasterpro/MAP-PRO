@@ -43,7 +43,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         productRepository.save(Arrays.asList(initProduct));
 
 
-        ShoppingCart shoppingCart = new ShoppingCart();
+       /* ShoppingCart shoppingCart = new ShoppingCart();
         List<SelectedProduct> selectedProducts = new ArrayList<>();
         SelectedProduct[] initSelectedProduct = {
                 new SelectedProduct(initProduct[2], 5),
@@ -55,7 +55,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         shoppingCart.setSelectedProducts(selectedProducts);
         shoppingCart.setPurchaseDate(calendar.getTime());
         shoppingCart.setId(1L);
-        shoppingCartRepository.save(shoppingCart);
+        shoppingCartRepository.save(shoppingCart);*/
 
         // add user
         Role adminRole = new Role("admin");

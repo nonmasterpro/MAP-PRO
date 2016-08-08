@@ -43,8 +43,8 @@ public class ProductController {
         return productService.updateProduct(product);
     }
 
-    @RequestMapping(value = "product/{id}",method = RequestMethod.DELETE)
-    public  Product edit(@PathVariable("id") Long id){
+    @RequestMapping(value = "product/remove",method = RequestMethod.DELETE)
+    public  Product remove(@RequestParam("id")Long id){
         return productService.deleteProduct(id);
     }
 }

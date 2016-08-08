@@ -12,7 +12,7 @@
     .controller('editUserController', editUserController);
 
   /** @ngInject */
-  function listUserController(userService, queryUserService) {
+  function listUserController(userService, queryUserService, $window, $location,$rootScope) {
     var vm = this;
     vm.queryPromise = userService.query(function (data) {
       vm.users = data;
@@ -29,8 +29,10 @@
       if (answer) {
         userService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
-          $route.reload();
-
+          //$route.reload();
+          $window.location.href = '#/memberList';
+          //$window.location.reload();
+          //$location.path("userList");
 
         })
       }
@@ -64,7 +66,7 @@
   }
 
   /** @ngInject */
-  function addUserController($http,$scope, $location, $rootScope, userService) {
+  function addUserController($http,$scope, $location, $rootScope, userService,$window) {
     var vm = $scope;
     vm.user = {};
     vm.addUser = true;
@@ -82,9 +84,7 @@
 
         vm.addSuccess = true;
 
-        $scope.reloadRoute = function() {
-          $window.location.reload();
-        }
+        $window.location.href = '#/memberList';
 
       });
     }

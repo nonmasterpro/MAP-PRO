@@ -4,6 +4,7 @@
     .module('app')
     .factory('productService',productService)
     .factory('totalCalService',totalCalService)
+    .factory('removeProductService',removeProductService)
     .factory('queryProductService',queryProductService);
 
 
@@ -13,7 +14,18 @@
     return $resource('/product/:id', { id: '@_id' }, {
         update: {
             method: 'PUT' // this method issues a PUT request
-        }});
+        }
+    });
+
+  }
+
+  /** @ngInject */
+  function removeProductService($resource){
+    return $resource('/product/remove', {}, {
+      update: {
+        method: 'DELETE' // this method issues a PUT request
+      }
+    });
 
   }
 

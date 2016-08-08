@@ -3,6 +3,7 @@ package camt.se331.shoppingcart.service;
 import camt.se331.shoppingcart.dao.ProductDao;
 import camt.se331.shoppingcart.entity.Image;
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.repository.ProductRepository;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
+    @Autowired
+    ProductRepository productRepository;
     @Autowired
     ProductDao productDao;
     @Override
@@ -45,7 +48,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product deleteProduct(Long id) {
         Product product = getProduct(id);
-        return productDao.deleteProduct(product);
+        productRepository.delete(id);
+        return null;
     }
 
     @Override

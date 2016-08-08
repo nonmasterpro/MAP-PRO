@@ -60,18 +60,20 @@
           <label for="email">Email :</label>
           <input ng-model="user.email" class="form-control" type="email" id="email" name="email" placeholder="email" required/>
 
-          <div class="alert alert-danger" role="alert" ng-show="editform.email.$error.required">
+          <div class="alert alert-danger" role="alert" ng-show="editform.email.$error.required || editform.email.$invalid">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
-            Email is Required!
+            Email is Required! and Valid Email
 
 
           </div>
         </div>
 
+        <div ng-hide="editform.$valid">
+          Please fill all information
+        </div>
 
-
-        <a ng-href="#/addU"><button type="submit" class="btn btn-default" ng-click="addUser($flow)" ng-show="addUser">Add</button></a>
+        <button type="submit" ng-disabled="editform.$invalid" class="btn btn-default" ng-click="addUser($flow)" ng-show="addUser">Add</button>
         <a ng-href="#/editU"><button type="submit" class="btn btn-default" ng-click="editUser()" ng-show="editUser">Edit</button></a>
 
 

@@ -22,8 +22,10 @@
 
   }
 
+
+
   /** @ngInject */
-  function addProductController($http,$scope, $location, $rootScope, productService) {
+  function addProductController($http,$scope, $location, $rootScope, productService,$window) {
     var vm = $scope;
     vm.product = {};
     vm.addPerson = true;
@@ -40,7 +42,7 @@
         flowFiles.upload();
 
         vm.addSuccess = true;
-
+        $window.location.href = '#/Product1';
 
       });
     }
@@ -53,7 +55,7 @@
 
 
   /** @ngInject */
-  function listProductController( $scope,$rootScope, productService, $route, queryProductService ,cartManagement) {
+  function listProductController(removeProductService, $scope,$rootScope, productService, $route,$window, queryProductService ,cartManagement) {
     var vm = this;
     //$http.get("/product/").success(function (data) {
     vm.queryPromise = productService.query(function (data) {
@@ -68,14 +70,20 @@
     //  $rootScope.deleteSuccess = false;
     //});
 
-    vm.deleteProduct = function (id) {
-      var answer = confirm("Do you want to delete the product?");
+    vm.deleteProduct = function (Id) {
+      var answer = confirm("Do you want to delete ?");
       if (answer) {
-        productService.delete({id: id}, function () {
-          $rootScope.deleteSuccess = true;
-          $route.reload();
+        removeProductService.remove({id: Id},function () {
 
+          //$rootScope.deleteSuccess = true;
+          //alert(1);
+
+          $window.location.href = '#/Product1';
+        }, function(error) {
+          console.log(error);
+          $window.location.href = '#/Product1';
         })
+
       }
     }
 
@@ -145,7 +153,7 @@
   }
 
   /** @ngInject */
-  function editProductController( $http, $scope, $routeParams, $location, $rootScope, productService) {
+  function editProductController( $http, $scope, $routeParams,$window, $location, $rootScope, productService) {
     var vm = $scope;
     vm.addProduct = false;
     vm.editProduct = true;
@@ -169,9 +177,7 @@
 
         vm.editSuccess = true;
 
-        $scope.reloadRoute = function() {
-          $window.location.reload();
-        }
+        $window.location.href = '#/Product1';
 
       });
     }

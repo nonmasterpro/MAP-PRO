@@ -1,0 +1,300 @@
+{
+  "$error": {
+    "required": [
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "productname",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "productdescription",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "productcontact",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [],
+        "$formatters": [],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "placetype",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "placeweb",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [
+          null,
+          null
+        ],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "productprice",
+        "$options": null
+      },
+      {
+        "$validators": {},
+        "$asyncValidators": {},
+        "$parsers": [
+          null,
+          null
+        ],
+        "$formatters": [
+          null
+        ],
+        "$viewChangeListeners": [],
+        "$untouched": true,
+        "$touched": false,
+        "$pristine": true,
+        "$dirty": false,
+        "$valid": false,
+        "$invalid": true,
+        "$error": {
+          "required": true
+        },
+        "$name": "wholesalePrice",
+        "$options": null
+      }
+    ]
+  },
+  "$name": "editform",
+  "$dirty": false,
+  "$pristine": true,
+  "$valid": false,
+  "$invalid": true,
+  "$submitted": false,
+  "productname": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "productname",
+    "$options": null
+  },
+  "productdescription": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "productdescription",
+    "$options": null
+  },
+  "productcontact": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "productcontact",
+    "$options": null
+  },
+  "placetype": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [],
+    "$formatters": [],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "placetype",
+    "$options": null
+  },
+  "placeweb": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "placeweb",
+    "$options": null
+  },
+  "productprice": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [
+      null,
+      null
+    ],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "productprice",
+    "$options": null
+  },
+  "wholesalePrice": {
+    "$validators": {},
+    "$asyncValidators": {},
+    "$parsers": [
+      null,
+      null
+    ],
+    "$formatters": [
+      null
+    ],
+    "$viewChangeListeners": [],
+    "$untouched": true,
+    "$touched": false,
+    "$pristine": true,
+    "$dirty": false,
+    "$valid": false,
+    "$invalid": true,
+    "$error": {
+      "required": true
+    },
+    "$name": "wholesalePrice",
+    "$options": null
+  }
+}
