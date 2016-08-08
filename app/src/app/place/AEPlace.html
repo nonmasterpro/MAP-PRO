@@ -161,7 +161,14 @@
       </div>
 
       <div ng-hide="editform.$valid">
-        Please fill all information
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <h4>Please fill all information</h4>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
       </div>
       <button type="submit" ng-disabled="editform.$invalid" class="btn btn-default" ng-click="addPlace($flow)" ng-show="addPlace">Add</button>
       <button type="submit" ng-disabled="editform.$invalid" class="btn btn-default" ng-click="editPlace($flow)" ng-show="editPlace">Edit</button>

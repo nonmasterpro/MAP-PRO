@@ -57,7 +57,7 @@
         function(error) {
           if(error.status=="401"){
             $rootScope.HeadFail ="Warning";
-            $rootScope.error="username or password is not correct";
+            $rootScope.error="Username or Password is not correct";
           }
         }
       )
