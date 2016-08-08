@@ -50,7 +50,7 @@
           <input ng-model="user.password" class="form-control" type="password" ng-minlength="6"
                  ng-maxlength="12" ng-pattern="/^[a-zA-Z0-9]*$/" id="password" name="password" placeholder="password" required/>
 
-          <div class="alert alert-danger" role="alert" ng-show="editform.password.$error.required|| editform.email.$invalid">
+          <div class="alert alert-danger" role="alert" ng-show="editform.password.$error.required|| editform.password.$invalid">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
             Password is Required! Only 0-9, a-z and A-Z !!
