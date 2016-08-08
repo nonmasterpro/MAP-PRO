@@ -30,6 +30,7 @@
         userService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
           //$route.reload();
+
           $window.location.reload();
           //$window.location.reload();
           //$location.path("userList");
