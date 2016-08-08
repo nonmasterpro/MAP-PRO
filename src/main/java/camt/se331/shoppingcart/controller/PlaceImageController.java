@@ -1,8 +1,8 @@
 package camt.se331.shoppingcart.controller;
 
 import camt.se331.shoppingcart.entity.Image;
-import camt.se331.shoppingcart.entity.Product;
-import camt.se331.shoppingcart.service.ProductService;
+import camt.se331.shoppingcart.entity.Place;
+import camt.se331.shoppingcart.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,15 +20,15 @@ import java.util.Iterator;
 @CrossOrigin
 @Controller
 @RequestMapping("/productImage")
-public class ProductImageController {
+public class PlaceImageController {
     @Autowired
-    ProductService productService;
+    PlaceService placeService;
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
-    public Product addImage(HttpServletRequest request,
-                            HttpServletResponse response, @RequestParam("productid")Long productId){
+    public Place addImage(HttpServletRequest request,
+                          HttpServletResponse response, @RequestParam("placeid")Long placeId){
         MultipartHttpServletRequest mRequest;
-        Product product = productService.getProduct(productId);
+        Place place = placeService.getPlace(placeId);
         try{
             mRequest = (MultipartHttpServletRequest)request;
             Iterator<String> itr= mRequest.getFileNames();
@@ -37,23 +37,23 @@ public class ProductImageController {
                 Image image = new Image();
                 image.setFileName(multipartFile.getOriginalFilename());
                 image.setContentType(multipartFile.getContentType());
-                image.setContent(multipartFile.getBytes());;
+                image.setContent(multipartFile.getBytes());
                 image.setCreated(Calendar.getInstance().getTime());
-                productService.addImage(product,image);
+                placeService.addImage(place,image);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
 
 
-        return product;
+        return place;
     }
 
     @RequestMapping(value = "/remove",method = RequestMethod.DELETE)
     @ResponseBody
-    public  Product edit(@RequestParam("productid") Long productId,@RequestParam("imageid") Long imageid){
-        Product product = productService.getProduct(productId);
+    public Place edit(@RequestParam("placeid") Long placeId, @RequestParam("imageid") Long imageid){
+        Place place = placeService.getPlace(placeId);
         //System.out.println("----------- " + productId + " --------" + imageid);
-        return productService.removeImage(product,imageid);
+        return placeService.removeImage(place,imageid);
     }
 }

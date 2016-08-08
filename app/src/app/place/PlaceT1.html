@@ -16,10 +16,10 @@
                       View Option
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <a href="#/Product1" class="list-group-item"> 1 Column View </a>
-                      <a href="#/Product2" class="list-group-item"> 2 Column View </a>
-                      <a href="#/Product3" class="list-group-item"> 3 Column View </a>
-                      <a href="#/Product4" class="list-group-item"> Picture View </a>
+                      <a href="#/Place1" class="list-group-item"> 1 Column View </a>
+                      <a href="#/Place2" class="list-group-item"> 2 Column View </a>
+                      <a href="#/Place3" class="list-group-item"> 3 Column View </a>
+                      <a href="#/Place4" class="list-group-item"> Picture View </a>
                     </div>
                   </div>
                 </ol>
@@ -30,34 +30,38 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
                 <span class="input-group-btn">
-                    <a class="btn btn-default" type="button" ng-click="vm.searchProduct(name)">Search</a>
+                    <a class="btn btn-default" type="button" ng-click="vm.searchPlace(name)">Search</a>
                 </span>
         </div>
       </div>
 
         <!-- Project One -->
         <div class="row">
-          <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="product in vm.products">
-          <div ng-repeat="image in product.images | limitTo:1" ng-if="$index%1==0" class="col-md-4 img-hover2">
-            <a href="#/ProductItem/{{product.id}}">
+          <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="place in vm.places">
+          <div ng-repeat="image in place.images | limitTo:1" ng-if="$index%1==0" class="col-md-4 img-hover2">
+            <a href="#/PlaceItem/{{place.id}}">
             <img class="img-responsive" ng-src="data:{{image.contentType}};base64,{{image.content}}" alt="">
               </a>
           </div>
             <div class="col-md-4">
-                <h3>{{product.name}}</h3>
-                <p>{{product.description}}</p>
+                <h3>{{place.name}}</h3>
+              <hr>
+                <p>{{place.description}}</p>
+              <hr>
               <h3>Contact</h3>
-              <p>{{product.contact}}</p>
+              <p>{{place.contact}}</p>
+              <hr>
               <h3>Type</h3>
-              <p>{{product.type}}</p>
+              <p>{{place.type}}</p>
+              <hr>
               <h3>Website</h3>
-              <p>{{product.website}}</p>
+              <p>{{place.website}}</p>
               <hr>
               <h4 ng-show="hasRole('admin')||hasRole('userwholesale')">Coordinates</h4>
-              <p ng-show="hasRole('admin')">x : {{product.x}}</p>
-              <p ng-show="hasRole('admin')">y : {{product.y}}</p>
-                <a class="btn btn-danger" ng-href="#/ProductItem/{{product.id}}">View Place</a>
-              <a class="btn btn-danger" data-toggle="modal" data-target="#ModalCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" ng-click="addToCart(product)">Add to Cart</a>
+              <p ng-show="hasRole('admin')">x : {{place.x}}</p>
+              <p ng-show="hasRole('admin')">y : {{place.y}}</p>
+                <a class="btn btn-danger" ng-href="#/PlaceItem/{{place.id}}">View Place</a>
+              <a class="btn btn-danger" data-toggle="modal" data-target="#ModalCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" ng-click="addToCart(place)">Add to Cart</a>
             </div>
           </div>
         </div>

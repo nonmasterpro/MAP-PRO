@@ -1,24 +1,18 @@
 package camt.se331.shoppingcart.controller;
 
-import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.Place;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.entity.User;
-import camt.se331.shoppingcart.service.ProductService;
+import camt.se331.shoppingcart.service.PlaceService;
 import camt.se331.shoppingcart.service.ShoppingCartService;
 import camt.se331.shoppingcart.service.UserService;
-import org.hibernate.internal.util.compare.CalendarComparator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Calendar;
 
 /**
  * Created by Dto on 4/6/2015.
@@ -31,7 +25,7 @@ public class ShoppingCartController {
     @Autowired
     ShoppingCartService shoppingCartService;
     @Autowired
-    ProductService productService;
+    PlaceService placeService;
     @Autowired
     UserService userService;
 
@@ -50,8 +44,8 @@ public class ShoppingCartController {
     @RequestMapping(value = "/addToCart/{id}", method = RequestMethod.POST)
     public ShoppingCart addProduct(@PathVariable("id") Long id,@RequestBody ShoppingCart shoppingCart, BindingResult bindingResult, Model model, HttpServletRequest httpServletRequest) {
 
-        Product product = productService.getProduct(id);
-        return shoppingCartService.addSelectedProduct(shoppingCart, product);
+        Place place = placeService.getPlace(id);
+        return shoppingCartService.addSelectedProduct(shoppingCart, place);
     }
 
     @RequestMapping(value="/saveCart",method= RequestMethod.POST)

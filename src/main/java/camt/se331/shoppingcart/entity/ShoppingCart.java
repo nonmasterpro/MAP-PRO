@@ -1,7 +1,6 @@
 package camt.se331.shoppingcart.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -35,19 +34,19 @@ public class ShoppingCart {
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
-    List<SelectedProduct> selectedProducts = new ArrayList<>();
+    List<SelectedPlace> selectedPlaces = new ArrayList<>();
     @Temporal(TemporalType.TIMESTAMP)
     Date purchaseDate;
     public double getTotalProductPrice(){
         return 0.0;
     };
 
-    public List<SelectedProduct> getSelectedProducts() {
-        return selectedProducts;
+    public List<SelectedPlace> getSelectedPlaces() {
+        return selectedPlaces;
     }
 
-    public void setSelectedProducts(List<SelectedProduct> selectedProducts) {
-        this.selectedProducts = selectedProducts;
+    public void setSelectedPlaces(List<SelectedPlace> selectedPlaces) {
+        this.selectedPlaces = selectedPlaces;
     }
 
     public Date getPurchaseDate() {
@@ -58,9 +57,9 @@ public class ShoppingCart {
         this.purchaseDate = purchaseDate;
     }
 
-    public ShoppingCart(List<SelectedProduct> selectedProducts) {
+    public ShoppingCart(List<SelectedPlace> selectedPlaces) {
 
-        this.selectedProducts = selectedProducts;
+        this.selectedPlaces = selectedPlaces;
     }
 
     @Override
@@ -71,7 +70,7 @@ public class ShoppingCart {
         ShoppingCart that = (ShoppingCart) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (selectedProducts != null ? !selectedProducts.equals(that.selectedProducts) : that.selectedProducts != null)
+        if (selectedPlaces != null ? !selectedPlaces.equals(that.selectedPlaces) : that.selectedPlaces != null)
             return false;
         return !(purchaseDate != null ? !purchaseDate.equals(that.purchaseDate) : that.purchaseDate != null);
 
@@ -80,7 +79,7 @@ public class ShoppingCart {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (selectedProducts != null ? selectedProducts.hashCode() : 0);
+        result = 31 * result + (selectedPlaces != null ? selectedPlaces.hashCode() : 0);
         result = 31 * result + (purchaseDate != null ? purchaseDate.hashCode() : 0);
         return result;
     }

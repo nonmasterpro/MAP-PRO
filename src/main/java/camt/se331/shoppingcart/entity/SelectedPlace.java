@@ -6,28 +6,28 @@ import javax.persistence.*;
  * Created by Dto on 2/7/2015.
  */
 @Entity
-public class SelectedProduct {
+public class SelectedPlace {
     @Id
     @GeneratedValue
     Long id;
     @OneToOne
-    Product product;
+    Place place;
     Integer amount;
 
     public Double getTotalPrice(){
         return 0.0;
     }
 
-    public SelectedProduct() {
+    public SelectedPlace() {
 
     }
 
-    public Product getProduct() {
-        return product;
+    public Place getPlace() {
+        return place;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setPlace(Place place) {
+        this.place = place;
     }
 
     public Integer getAmount() {
@@ -43,10 +43,10 @@ public class SelectedProduct {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        SelectedProduct that = (SelectedProduct) o;
+        SelectedPlace that = (SelectedPlace) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (product != null ? !product.equals(that.product) : that.product != null) return false;
+        if (place != null ? !place.equals(that.place) : that.place != null) return false;
         return !(amount != null ? !amount.equals(that.amount) : that.amount != null);
 
     }
@@ -54,7 +54,7 @@ public class SelectedProduct {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (product != null ? product.hashCode() : 0);
+        result = 31 * result + (place != null ? place.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
     }
@@ -68,9 +68,9 @@ public class SelectedProduct {
         this.id = id;
     }
 
-    public SelectedProduct(Product product, Integer amount) {
+    public SelectedPlace(Place place, Integer amount) {
 
-        this.product = product;
+        this.place = place;
         this.amount = amount;
 
     }

@@ -1,13 +1,13 @@
 package camt.se331.shoppingcart.config;
 
-import camt.se331.shoppingcart.dao.ShoppingCartDao;
 import camt.se331.shoppingcart.entity.*;
-import camt.se331.shoppingcart.repository.ProductRepository;
+import camt.se331.shoppingcart.repository.PlaceRepository;
 import camt.se331.shoppingcart.repository.ShoppingCartRepository;
 import camt.se331.shoppingcart.repository.UserRepository;
 import camt.se331.shoppingcart.service.ImageUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ import java.util.*;
 @Profile("db.init")
 public class DatabaseInitializationBean implements InitializingBean {
     @Autowired
-    ProductRepository productRepository;
+    PlaceRepository placeRepository;
     @Autowired
     ShoppingCartRepository shoppingCartRepository;
 
@@ -28,31 +28,31 @@ public class DatabaseInitializationBean implements InitializingBean {
     UserRepository userRepository;
     @Override
     public void afterPropertiesSet() throws Exception {
-        Product[] initProduct = {
-                new Product(1l, "CAMT", "College of art media and technology", 10.5,112.0,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/camt.jpg")),
-                new Product(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0,"02-222-2222","Dormitory","www.aaa.com", ImageUtil.getImage("pic/4thDormMale.jpg")),
-                new Product(3l, "Angkeaw", " Mac book interim", 44.00, 90.00,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/angkeaw.jpg")),
-                new Product(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 ,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/clockTower.jpg")),
-                new Product(5l, "I like ice cream", "User for what ?", 200.00, 150.00,"02-222-2222","Cafe","www.aaa.com", ImageUtil.getImage("pic/ilike.jpg")),
-                new Product(6l, "Sport Field", "Call the others", 150.00, 100.00 ,"02-222-2222","Sportfield","www.aaa.com", ImageUtil.getImage("pic/sportField.jpg")),
-                new Product(7l, "Salatham", "What is it?", 20.00, 260.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/salatham.jpg")),
-                new Product(8l, "RB5", "Who still use this ?", 240.00, 2.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/rb5.jpg")),
-                new Product(9l, "Faihin", "we hate it", 2.00,10.00,"02-222-2222","Restaurant","www.aaa.com", ImageUtil.getImage("pic/faihin.jpg")),
-                new Product(10l, "Economic Building", "Very handsome guy use this", 30.00,200.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/econBuilding.jpg"))
+        Place[] initPlace = {
+                new Place(1l, "CAMT", "College of art media and technology", 10.5,112.0,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/camt.jpg")),
+                new Place(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0,"02-222-2222","Dormitory","www.aaa.com", ImageUtil.getImage("pic/4thDormMale.jpg")),
+                new Place(3l, "Angkeaw", " Mac book interim", 44.00, 90.00,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/angkeaw.jpg")),
+                new Place(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 ,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/clockTower.jpg")),
+                new Place(5l, "I like ice cream", "User for what ?", 200.00, 150.00,"02-222-2222","Cafe","www.aaa.com", ImageUtil.getImage("pic/ilike.jpg")),
+                new Place(6l, "Sport Field", "Call the others", 150.00, 100.00 ,"02-222-2222","Sportfield","www.aaa.com", ImageUtil.getImage("pic/sportField.jpg")),
+                new Place(7l, "Salatham", "What is it?", 20.00, 260.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/salatham.jpg")),
+                new Place(8l, "RB5", "Who still use this ?", 240.00, 2.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/rb5.jpg")),
+                new Place(9l, "Faihin", "we hate it", 2.00,10.00,"02-222-2222","Restaurant","www.aaa.com", ImageUtil.getImage("pic/faihin.jpg")),
+                new Place(10l, "Economic Building", "Very handsome guy use this", 30.00,200.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/econBuilding.jpg"))
         };
-        productRepository.save(Arrays.asList(initProduct));
+        placeRepository.save(Arrays.asList(initPlace));
 
 
        /* ShoppingCart shoppingCart = new ShoppingCart();
-        List<SelectedProduct> selectedProducts = new ArrayList<>();
-        SelectedProduct[] initSelectedProduct = {
-                new SelectedProduct(initProduct[2], 5),
-                new SelectedProduct(initProduct[4], 2),
-                new SelectedProduct(initProduct[1], 1),
+        List<SelectedPlace> selectedProducts = new ArrayList<>();
+        SelectedPlace[] initSelectedProduct = {
+                new SelectedPlace(initPlace[2], 5),
+                new SelectedPlace(initPlace[4], 2),
+                new SelectedPlace(initPlace[1], 1),
         };
         selectedProducts.addAll(Arrays.asList(initSelectedProduct));
         Calendar calendar = new GregorianCalendar(2015, 4, 7);
-        shoppingCart.setSelectedProducts(selectedProducts);
+        shoppingCart.setSelectedPlaces(selectedProducts);
         shoppingCart.setPurchaseDate(calendar.getTime());
         shoppingCart.setId(1L);
         shoppingCartRepository.save(shoppingCart);*/

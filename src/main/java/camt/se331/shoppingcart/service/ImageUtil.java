@@ -42,7 +42,7 @@ public class ImageUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Image imageResize = ImageUtil.resizeImage(image,200);
+        Image imageResize = ImageUtil.resizeImage(image,1500);
         return imageResize;
 
     }

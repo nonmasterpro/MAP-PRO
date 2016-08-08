@@ -13,29 +13,29 @@
     when('/index',{
       templateUrl: 'app/main/main.html'
     }).
-    when('/Product1',{
-      templateUrl: 'app/product/PlaceT1.html',
-      controller: 'listProductController',
+    when('/Place1',{
+      templateUrl: 'app/place/PlaceT1.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
-    when('/Product2',{
-      templateUrl: 'app/product/PlaceT2.html',
-      controller: 'listProductController',
+    when('/Place2',{
+      templateUrl: 'app/place/PlaceT2.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
-    when('/Product3',{
-      templateUrl: 'app/product/PlaceT3.html',
-      controller: 'listProductController',
+    when('/Place3',{
+      templateUrl: 'app/place/PlaceT3.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
-    when('/Product4',{
-      templateUrl: 'app/product/PlaceT4.html',
-      controller: 'listProductController',
+    when('/Place4',{
+      templateUrl: 'app/place/PlaceT4.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
-    when('/ProductItem/:id',{
-      templateUrl: 'app/product/PlaceItem.html',
-      controller: 'viewProductController',
+    when('/PlaceItem/:id',{
+      templateUrl: 'app/place/PlaceItem.html',
+      controller: 'viewPlaceController',
       controllerAs: 'vm'
     }).
     /*when('/shoppingCart/:id',{
@@ -48,20 +48,20 @@
       controller: 'shoppingCartController',
       controllerAs: 'vm'
     }).*/
-    when('/ManageProduct',{
-      templateUrl: 'app/product/managePlace.html',
-      controller: 'listProductController',
+    when('/ManagePlace',{
+      templateUrl: 'app/place/managePlace.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
-    when('/addProduct',{
-        templateUrl: 'app/product/AEPlace.html',
-        controller: 'addProductController',
-        controllerAs: 'addProductController'
+    when('/addPlace',{
+        templateUrl: 'app/place/AEPlace.html',
+        controller: 'addPlaceController',
+        controllerAs: 'addPlaceController'
       }).
-      when('/editProduct/:id',{
-        templateUrl: 'app/product/AEPlace.html',
-        controller: 'editProductController',
-        controllerAs: 'editProductController'
+      when('/editPlace/:id',{
+        templateUrl: 'app/place/AEPlace.html',
+        controller: 'editPlaceController',
+        controllerAs: 'editPlaceController'
       }).
     when('/About',{
       templateUrl: 'app/Extras/about.html'
@@ -77,7 +77,7 @@
       controllerAs: 'addUserController'
     }).
     when('/editU',{
-      templateUrl: 'app/user/userList.html',
+      templateUrl: 'app/user/ManageUser.html',
       controller: 'listUserController',
       controllerAs: 'vm'
     }).
@@ -92,18 +92,18 @@
       controllerAs: 'vm'
     }).
     when('/editP',{
-      templateUrl: 'app/product/PlaceT1.html',
-      controller: 'listProductController',
+      templateUrl: 'app/place/PlaceT1.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
     when('/DelP',{
-      templateUrl: 'app/product/PlaceT1.html',
-      controller: 'listProductController',
+      templateUrl: 'app/place/PlaceT1.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
     when('/addP',{
-      templateUrl: 'app/product/PlaceT1.html',
-      controller: 'listProductController',
+      templateUrl: 'app/place/PlaceT1.html',
+      controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
     when('/memberList',{

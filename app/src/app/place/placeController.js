@@ -3,11 +3,11 @@
 
   angular
     .module('app')
-    .controller('addProductController', addProductController)
-    .controller('listProductController', listProductController)
-    .controller('viewProductController',viewProductController)
+    .controller('addPlaceController', addPlaceController)
+    .controller('listPlaceController', listPlaceController)
+    .controller('viewPlaceController',viewPlaceController)
     .controller('reviewController',reviewController)
-    .controller('editProductController', editProductController);
+    .controller('editPlaceController', editPlaceController);
 
 
   /** @ngInject */
@@ -25,24 +25,24 @@
 
 
   /** @ngInject */
-  function addProductController($http,$scope, $location, $rootScope, productService,$window) {
+  function addPlaceController($http,$scope, $location, $rootScope, placeService,$window) {
     var vm = $scope;
-    vm.product = {};
+    vm.place = {};
     vm.addPerson = true;
     vm.editPerson = false;
-    vm.addProduct = function (flowFiles) {
-      productService.save(vm.product, function (data) {
+    vm.addPlace = function (flowFiles) {
+      placeService.save(vm.place, function (data) {
         // after adding the object, add a new picture
         // get the product id which the image will be addded
-        var productid = data.id;
+        var placeid = data.id;
         // set location
         flowFiles.opts.target = 'http://localhost:8080/productImage/add';
         flowFiles.opts.testChunks = false;
-        flowFiles.opts.query = {productid: productid};
+        flowFiles.opts.query = {placeid: placeid};
         flowFiles.upload();
 
         vm.addSuccess = true;
-        $window.location.href = '#/Product1';
+        $window.location.href = '#/ManagePlace';
 
       });
     }
@@ -55,12 +55,12 @@
 
 
   /** @ngInject */
-  function listProductController(removeProductService, $scope,$rootScope, productService, $route,$window, queryProductService ,cartManagement) {
+  function listPlaceController(removePlaceService, $scope,$rootScope, placeService, $route,$window, queryPlaceService ,cartManagement) {
     var vm = this;
     //$http.get("/product/").success(function (data) {
-    vm.queryPromise = productService.query(function (data) {
+    vm.queryPromise = placeService.query(function (data) {
       // $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
-     vm.products = data;
+     vm.places = data;
     }).$promise;
 
 
@@ -70,26 +70,26 @@
     //  $rootScope.deleteSuccess = false;
     //});
 
-    vm.deleteProduct = function (Id) {
+    vm.deletePlace = function (Id) {
       var answer = confirm("Do you want to delete ?");
       if (answer) {
-        removeProductService.remove({id: Id},function () {
+        removePlaceService.remove({id: Id},function () {
 
           //$rootScope.deleteSuccess = true;
           //alert(1);
 
-          $window.location.href = '#/Product1';
+          $window.location.reload();
         }, function(error) {
           console.log(error);
-          $window.location.href = '#/Product1';
+          $window.location.reload();
         })
 
       }
     }
 
-    vm.searchProduct = function (name) {
-      queryProductService.query({name: name}, function (data) {
-        vm.products = data;
+    vm.searchPlace = function (name) {
+      queryPlaceService.query({name: name}, function (data) {
+        vm.places = data;
       });
     }
 
@@ -119,16 +119,16 @@
 
 
   /** @ngInject */
-  function viewProductController($routeParams, productService ,$rootScope ,cartManagement ,$route) {
+  function viewPlaceController($routeParams, placeService ,$rootScope ,cartManagement ,$route) {
     var vm = $rootScope;
     var id = $routeParams.id;
-    vm.imageProduct=null;
-    vm.productDetail=null;
-    productService.get({id:id},function (data) {
-      vm.productDetail=data;
-      vm.imageProduct = vm.productDetail.images;
+    vm.imagePlace=null;
+    vm.placeDetail=null;
+    placeService.get({id:id},function (data) {
+      vm.placeDetail=data;
+      vm.imagePlace = vm.placeDetail.images;
     })
-    vm.addToCart = function (product) {
+/*    vm.addToCart = function (place) {
       $rootScope.HeadSuccess=null;
       $rootScope.HeadFail=null;
       $rootScope.result=null;
@@ -148,37 +148,36 @@
         }
       })
       $route.reload();
-    }
+    }*/
 
   }
 
   /** @ngInject */
-  function editProductController( $http, $scope, $routeParams,$window, $location, $rootScope, productService) {
+  function editPlaceController( $http, $scope, $routeParams,$window, $location, $rootScope, placeService) {
     var vm = $scope;
-    vm.addProduct = false;
-    vm.editProduct = true;
+    vm.addPlace = false;
+    vm.editPlace = true;
     var id = $routeParams.id;
-    productService.get({id:id},
+    placeService.get({id:id},
       // success function
      function(data){
-       vm.product=data;
+       vm.place=data;
      }
     )
 
 
-    vm.editProduct = function (flowFiles) {
+    vm.editPlace = function (flowFiles) {
       //$http.put("/product", $scope.product).then(function () {
-      productService.update({id: vm.product.id}, vm.product, function (data) {
-        var productid = data.id;
+      placeService.update({id: vm.place.id}, vm.place, function (data) {
+        var placeid = data.id;
         flowFiles.opts.target = 'http://localhost:8080/productImage/add';
         flowFiles.opts.testChunks = false;
-        flowFiles.opts.query = {productid:productid};
+        flowFiles.opts.query = {placeid:placeid};
         flowFiles.upload();
 
         vm.editSuccess = true;
 
-        $window.location.href = '#/Product1';
-
+        $window.location.href = '#/ManagePlace';
       });
     }
 
@@ -187,7 +186,7 @@
       if (r == true) {
         $http.delete("http://localhost:8080/productImage/remove?productid="+pdId+"&imageid="+imgId).then(function () {
           $http.get("http://localhost:8080/product/" + pdId).success(function (data) {
-            vm.product = data;
+            vm.place = data;
           });
         }, function(){
           console.log("FAILED");

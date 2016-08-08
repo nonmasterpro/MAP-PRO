@@ -30,7 +30,7 @@
         userService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
           //$route.reload();
-          $window.location.href = '#/memberList';
+          $window.location.reload();
           //$window.location.reload();
           //$location.path("userList");
 
@@ -84,7 +84,7 @@
 
         vm.addSuccess = true;
 
-        $window.location.href = '#/memberList';
+        $window.location.href = '#/ManageMember';
 
       });
     }
@@ -96,7 +96,7 @@
   }
 
   /** @ngInject */
-  function editUserController($route, $routeParams, $location, $rootScope, userService, $http,$scope ) {
+  function editUserController($route,$window, $routeParams, $location, $rootScope, userService, $http,$scope ) {
 
     var vm = $scope;
     vm.addUser = false;
@@ -105,12 +105,13 @@
     userService.get({id:id},
       // success function
       function(data){
-        vm.user=data;
+        vm.user=data;1
       }
     )
 
 
     vm.editUser = function (flowFiles) {
+
       //$http.put("/product", $scope.product).then(function () {
       userService.update({id: vm.user.id}, vm.user, function (data) {
         var userid = data.id;
@@ -121,9 +122,7 @@
 
         vm.editSuccess = true;
 
-        $scope.reloadRoute = function() {
-          $window.location.reload();
-        }
+        $window.location.href = '#/ManageMember';
       });
     }
 

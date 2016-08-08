@@ -19,13 +19,13 @@
     <div class="input-group">
       <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
                 <span class="input-group-btn">
-                    <a class="btn btn-default" type="button" ng-click="vm.searchProduct(name)">Search</a>
+                    <a class="btn btn-default" type="button" ng-click="vm.searchPlace(name)">Search</a>
                 </span>
     </div>
   </div>
 
   <div class="col-md-12" style="margin-top: 25px!important;">
-    <a type="button" href="#/addProduct" class="btn btn-danger" style="margin-left: 50%;border-radius: 5px">
+    <a type="button" href="#/addPlace" class="btn btn-danger" style="margin-left: 50%;border-radius: 5px">
     Add Place
     </a>
   </div>
@@ -34,27 +34,27 @@
 
   <!-- Project One -->
   <div class="row">
-    <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="product in vm.products">
-      <div ng-repeat="image in product.images" class="col-md-7 img-hoverM">
-        <a href="#/ProductItem/{{product.id}}">
+    <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="place in vm.places">
+      <div ng-repeat="image in place.images" class="col-md-7 img-hoverM">
+        <a href="#/PlaceItem/{{place.id}}">
           <img class="img-responsive" ng-src="data:{{image.contentType}};base64,{{image.content}}" alt="">
         </a>
       </div>
       <div class="col-md-5" style="float: right">
-        <h3>{{product.name}}</h3>
+        <h3>{{place.name}}</h3>
         <h4>Description</h4>
-        <p>{{product.description}}</p>
+        <p>{{place.description}}</p>
         <h4>Contact</h4>
-        <p>{{product.contact}}</p>
+        <p>{{place.contact}}</p>
         <h4>Type</h4>
-        <p>{{product.type}}</p>
+        <p>{{place.type}}</p>
         <h4>Website</h4>
-        <p>{{product.website}}</p>
+        <p>{{place.website}}</p>
         <h4 ng-show="hasRole('admin')">Coordinates</h4>
-        <p ng-show="hasRole('admin')">x : {{product.x}}</p>
-        <p ng-show="hasRole('admin')">y : {{product.y}}</p>
-        <a class="btn btn-primary" ng-href="#/editProduct/{{product.id}}">Edit Place</a>
-        <button type="button" class="btn btn-danger" ng-click="vm.deleteProduct(product.id)">Delete Place</button>
+        <p ng-show="hasRole('admin')">x : {{place.x}}</p>
+        <p ng-show="hasRole('admin')">y : {{place.y}}</p>
+        <a class="btn btn-primary" ng-href="#/editPlace/{{place.id}}">Edit Place</a>
+        <button type="button" class="btn btn-danger" ng-click="vm.deletePlace(place.id)">Delete Place</button>
       </div>
     </div>
   </div>

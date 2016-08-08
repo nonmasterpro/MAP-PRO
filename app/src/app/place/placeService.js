@@ -2,16 +2,16 @@
 'use strict'
   angular
     .module('app')
-    .factory('productService',productService)
+    .factory('placeService',placeService)
     .factory('totalCalService',totalCalService)
-    .factory('removeProductService',removeProductService)
-    .factory('queryProductService',queryProductService);
+    .factory('removePlaceService',removePlaceService)
+    .factory('queryPlaceService',queryPlaceService);
 
 
 
   /** @ngInject */
-  function productService($resource){
-    return $resource('/product/:id', { id: '@_id' }, {
+  function placeService($resource){
+    return $resource('/place/:id', { id: '@_id' }, {
         update: {
             method: 'PUT' // this method issues a PUT request
         }
@@ -20,8 +20,8 @@
   }
 
   /** @ngInject */
-  function removeProductService($resource){
-    return $resource('/product/remove', {}, {
+  function removePlaceService($resource){
+    return $resource('/place/remove', {}, {
       update: {
         method: 'DELETE' // this method issues a PUT request
       }
@@ -45,8 +45,8 @@
 
 
   /** @ngInject */
-  function queryProductService($resource){
-    return $resource('/getProduct/?name=:name',
+  function queryPlaceService($resource){
+    return $resource('/getPlace/?name=:name',
         {query:{method:'GET',params:{name:''},isArray:true}
 
         });

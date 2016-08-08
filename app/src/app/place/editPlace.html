@@ -1,29 +1,29 @@
 <div class="row-fluid">
     <div class="row" ng-show="addPerson">
-        <h1>Add new product</h1>
+        <h1>Add new place</h1>
     </div>
     <div class="row" ng-show="editPerson">
-        <h1>Edit Product</h1>
+        <h1>Edit Place</h1>
     </div>
     <div class="col-md-4">
         <form name="editform" novalidate flow-init>
             <div class="form-group">
                 <!-- Sidebar content-->
-                <label for="productname">name :</label>
-                <input ng-model="vm.product.name" class="form-control" id="productname" name="productname" placeholder="name" required/>
+                <label for="placename">name :</label>
+                <input ng-model="vm.place.name" class="form-control" id="placename" name="placename" placeholder="name" required/>
 
-                <div class="alert alert-danger" role="alert" ng-show="vm.editform.productname.$error.required">
+                <div class="alert alert-danger" role="alert" ng-show="vm.editform.placename.$error.required">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span>
-                    Product name is Required!
+                  Place name is Required!
                 </div>
             </div>
             <div class="form-group">
-                <label for="productdescription">Description :</label>
-                <input ng-model="vm.product.description" class="form-control" id="productdescription"
-                       placeholder="description" name="productdescription" required/>
+                <label for="placedescription">Description :</label>
+                <input ng-model="vm.place.description" class="form-control" id="placedescription"
+                       placeholder="description" name="placedescription" required/>
 
-                <div class="alert alert-danger" role="alert" ng-show="vm.editform.productdescription.$error.required">
+                <div class="alert alert-danger" role="alert" ng-show="vm.editform.placedescription.$error.required">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span>
                     Description is Required!
@@ -31,16 +31,16 @@
 
             </div>
             <div class="form-group">
-                <label for="productprice">price :</label>
-                <input ng-model="vm.product.totalPrice" name="productprice" class="form-control" id="productprice"
+                <label for="placeprice">price :</label>
+                <input ng-model="vm.place.totalPrice" name="placeprice" class="form-control" id="placeprice"
                        placeholder="price" type="number" required/>
 
-                <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.required">
+                <div class="alert alert-danger" role="alert" ng-show="vm.editform.placeprice.$error.required">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span>
                     Price is Required!
                 </div>
-                <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.number">
+                <div class="alert alert-danger" role="alert" ng-show="vm.editform.placeprice.$error.number">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span>
                     Enter the number!!
@@ -58,8 +58,8 @@
                 </table>
             </div>
 
-            <button type="submit" class="btn btn-default" ng-click="addProductController.addProduct($flow)" ng-show="addProductController">Add</button>
-            <button type="submit" class="btn btn-default" ng-click="editProductController.editProduct()" ng-show="editProductController">Edit</button>
+            <button type="submit" class="btn btn-default" ng-click="addPlaceController.addPlace($flow)" ng-show="addPlaceController">Add</button>
+            <button type="submit" class="btn btn-default" ng-click="editPlaceController.editPlace()" ng-show="editPlaceController">Edit</button>
         </form>
     </div>
 </div>

@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by Dto on 2/7/2015.
  */
 @Entity
-public class Product implements Comparable{
+public class Place implements Comparable{
     @Id
     @GeneratedValue
     Long id;
@@ -24,7 +24,7 @@ public class Product implements Comparable{
     String website;
 
 
-    public Product(Long id,String name, String description, Double x, Double y, String contact, String type, String website, Image image) {
+    public Place(Long id, String name, String description, Double x, Double y, String contact, String type, String website, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -37,7 +37,7 @@ public class Product implements Comparable{
     }
 
 
-    public Product(Long id,String name, String description, Double x, Double y, String contact, String type, Image image) {
+    public Place(Long id, String name, String description, Double x, Double y, String contact, String type, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -50,7 +50,7 @@ public class Product implements Comparable{
 
 
 
-    public Product(Long id, String name, String description, Double x, Double y, String contact, Image image) {
+    public Place(Long id, String name, String description, Double x, Double y, String contact, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -60,7 +60,7 @@ public class Product implements Comparable{
         this.images.add(image) ;
     }
 
-    public Product(Long id, String name, String description, Double x, Double y, Image image) {
+    public Place(Long id, String name, String description, Double x, Double y, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -68,7 +68,7 @@ public class Product implements Comparable{
         this.y = y;
         this.images.add(image) ;
     }
-    public Product(Long id,String name, String description, Double x, Double y) {
+    public Place(Long id, String name, String description, Double x, Double y) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -114,13 +114,13 @@ public class Product implements Comparable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Product product = (Product) o;
+        Place place = (Place) o;
 
-        if (!id.equals(product.id)) return false;
-        if (!name.equals(product.name)) return false;
-        if (!description.equals(product.description)) return false;
-        if (!x.equals(product.x)) return false;
-        return y.equals(product.y);
+        if (!id.equals(place.id)) return false;
+        if (!name.equals(place.name)) return false;
+        if (!description.equals(place.description)) return false;
+        if (!x.equals(place.x)) return false;
+        return y.equals(place.y);
 
     }
 
@@ -138,7 +138,7 @@ public class Product implements Comparable{
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Image> images = new HashSet<>();
 
-    public Product(Long id,String name, String description, Double x, Image image) {
+    public Place(Long id, String name, String description, Double x, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -162,7 +162,7 @@ public class Product implements Comparable{
         this.id = id;
     }
 
-    public Product(){
+    public Place(){
 
     };
 
@@ -174,7 +174,7 @@ public class Product implements Comparable{
         return 0.0;
     }
 
-    public Product(Long id,String name, String description, Double price) {
+    public Place(Long id, String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.x = price;
@@ -202,6 +202,6 @@ public class Product implements Comparable{
     @Override
     public int compareTo(Object o) {
 
-        return (int) (this.getId() - ((Product)o).getId());
+        return (int) (this.getId() - ((Place)o).getId());
     }
 }

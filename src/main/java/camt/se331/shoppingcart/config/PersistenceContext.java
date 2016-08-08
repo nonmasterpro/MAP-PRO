@@ -3,6 +3,9 @@ package camt.se331.shoppingcart.config;
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -34,6 +37,10 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
+@EnableAutoConfiguration(exclude={
+        SecurityAutoConfiguration.class,
+        DataSourceAutoConfiguration.class
+})
 @EnableJpaRepositories("camt.se331.shoppingcart.repository")
 @PropertySources(value={@PropertySource("classpath:/hibernate.properties")})
 class PersistenceContext {
