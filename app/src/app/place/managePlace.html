@@ -18,15 +18,50 @@
   <div class="col-lg-6">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
-                <span class="input-group-btn">
-                    <a class="btn btn-default" type="button" ng-click="vm.searchPlace(name)">Search</a>
-                </span>
+
+
+      <!-- <div class="dropdown Fix">
+         <button class="btn btn-info dropdown-toggle" style="margin-left: 5%; margin-bottom: 5%" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Select Type
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+           <a href="#/type0" class="list-group-item"> Show All </a>
+           <a href="#/type1" class="list-group-item"> Faculty </a>
+           <a href="#/type2" class="list-group-item"> Building </a>
+           <a href="#/type3" class="list-group-item"> Cafe </a>
+           <a href="#/type4" class="list-group-item"> Car Parking </a>
+           <a href="#/type5" class="list-group-item"> Sport Field </a>
+           <a href="#/type6" class="list-group-item"> ATM </a>
+           <a href="#/type7" class="list-group-item"> Restaurant </a>
+           <a href="#/type8" class="list-group-item"> Dormitory </a>
+           <a href="#/type9" class="list-group-item"> Landmark </a>
+         </div>
+
+       </div>-->
+
+      <select class="selectpicker" data-style="btn-primary">
+        <option>Show all</option>
+        <option>Faculty</option>
+        <option>Building</option>
+        <option>Cafe</option>
+        <option>Car Parking</option>
+        <option>Sport Field</option>
+        <option>ATM</option>
+        <option>Restaurant</option>
+        <option>Dormitory</option>
+        <option>Landmark</option>
+
+      </select>
+
+      <a class="btn btn-default" style="margin-left: 2%;margin-top: 1%" type="button" ng-click="vm.searchPlace(name)">Search</a>
+
     </div>
   </div>
 
+
   <div class="col-md-12" style="margin-top: 25px!important;">
-    <a type="button" href="#/addPlace" class="btn btn-danger" style="margin-left: 50%;border-radius: 5px">
-    Add Place
+    <a type="button" href="#/addPlace" class="btn btn-danger">
+      Add Place
     </a>
   </div>
 
@@ -34,7 +69,9 @@
 
   <!-- Project One -->
   <div class="row">
-    <div class="col-md-12" style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1" ng-repeat="place in vm.places">
+    <div class="col-md-12"
+         style="margin-top: 10px!important; padding-bottom: 10px!important; border-bottom: 1px dashed #c1c1c1"
+         ng-repeat="place in vm.places">
       <div ng-repeat="image in place.images" class="col-md-7 img-hoverM">
         <a href="#/PlaceItem/{{place.id}}">
           <img class="img-responsive" ng-src="data:{{image.contentType}};base64,{{image.content}}" alt="">
@@ -42,17 +79,23 @@
       </div>
       <div class="col-md-5" style="float: right">
         <h3>{{place.name}}</h3>
+        <hr>
         <h4>Description</h4>
         <p>{{place.description}}</p>
-        <h4>Contact</h4>
+        <hr>
+        <!--<h4>Contact</h4>
         <p>{{place.contact}}</p>
+        <hr>-->
         <h4>Type</h4>
         <p>{{place.type}}</p>
-        <h4>Website</h4>
+        <hr>
+        <!--<h4>Website</h4>
         <p>{{place.website}}</p>
+        <hr>-->
         <h4 ng-show="hasRole('admin')">Coordinates</h4>
         <p ng-show="hasRole('admin')">x : {{place.x}}</p>
         <p ng-show="hasRole('admin')">y : {{place.y}}</p>
+        <hr>
         <a class="btn btn-primary" ng-href="#/editPlace/{{place.id}}">Edit Place</a>
         <button type="button" class="btn btn-danger" ng-click="vm.deletePlace(place.id)">Delete Place</button>
       </div>
@@ -66,11 +109,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" >{{HeadSuccess}}</h4>
+          <h4 class="modal-title">{{HeadSuccess}}</h4>
           <h4 class="modal-title" ng-hide="result">{{HeadFail}}</h4>
         </div>
         <div class="modal-body">
-          <p style="color: white" >{{result}}</p>
+          <p style="color: white">{{result}}</p>
           <p style="color: white" ng-hide="result">{{error}}</p>
         </div>
         <div class="modal-footer">

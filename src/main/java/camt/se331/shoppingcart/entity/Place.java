@@ -20,9 +20,22 @@ public class Place implements Comparable{
     Double x;
     Double y;
     String contact;
+    String contactNo;
     String type;
     String website;
 
+    public Place(Long id,String name, String description, Double x, Double y, String contact, String contactNo, String type, String website, Image image) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.x = x;
+        this.y = y;
+        this.contact = contact;
+        this.contactNo = contactNo;
+        this.type = type;
+        this.website = website;
+        this.images.add(image) ;
+    }
 
     public Place(Long id, String name, String description, Double x, Double y, String contact, String type, String website, Image image) {
         this.id = id;

@@ -23,11 +23,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    @Override
-    @Transactional
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
+
 
     @Override
     @Transactional
@@ -35,19 +31,19 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
-    @Override
-    public User findUserByEmail(String username) {
-        return null;
-    }
+//    @Override
+//    public User findUserByEmail(String username) {
+//        return null;
+//    }
 
     @Override
-    public User login(String email, String password) {
+    public User login(String username, String password) {
         return null;
     }
 
     @Override
     public List<User> getUsers() {
-        return userDao.findAll();
+        return userDao.getUsers();
     }
 
     @Override

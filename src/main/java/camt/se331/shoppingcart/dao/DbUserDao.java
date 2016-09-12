@@ -17,10 +17,13 @@ import java.util.Set;
 public class DbUserDao  implements UserDao{
     @Autowired
     UserRepository userRepository;
+
+
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public User login(String username, String password) {
+        return null;
     }
+
 
     @Override
     public User findByUserName(String username) {

@@ -30,15 +30,15 @@ public class DatabaseInitializationBean implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         Place[] initPlace = {
                 new Place(1l, "CAMT", "College of art media and technology", 10.5,112.0,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/camt.jpg")),
-                new Place(2l, "Male Dormitory 4th", "The unknow computer", 99.5,100.0,"02-222-2222","Dormitory","www.aaa.com", ImageUtil.getImage("pic/4thDormMale.jpg")),
-                new Place(3l, "Angkeaw", " Mac book interim", 44.00, 90.00,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/angkeaw.jpg")),
-                new Place(4l, "Clock Tower", "use for lighten up the world", 10.00, 55.00 ,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/clockTower.jpg")),
-                new Place(5l, "I like ice cream", "User for what ?", 200.00, 150.00,"02-222-2222","Cafe","www.aaa.com", ImageUtil.getImage("pic/ilike.jpg")),
-                new Place(6l, "Sport Field", "Call the others", 150.00, 100.00 ,"02-222-2222","Sportfield","www.aaa.com", ImageUtil.getImage("pic/sportField.jpg")),
-                new Place(7l, "Salatham", "What is it?", 20.00, 260.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/salatham.jpg")),
-                new Place(8l, "RB5", "Who still use this ?", 240.00, 2.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/rb5.jpg")),
-                new Place(9l, "Faihin", "we hate it", 2.00,10.00,"02-222-2222","Restaurant","www.aaa.com", ImageUtil.getImage("pic/faihin.jpg")),
-                new Place(10l, "Economic Building", "Very handsome guy use this", 30.00,200.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/econBuilding.jpg"))
+                new Place(2l, "Male Dormitory 4th", "The dormitory for male", 99.5,100.0,"02-222-2222","Dormitory","www.aaa.com", ImageUtil.getImage("pic/4thDormMale.jpg")),
+                new Place(3l, "Angkeaw", " Landmark of CMU", 44.00, 90.00,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/angkeaw.jpg")),
+                new Place(4l, "Clock Tower", "Landmark of CMU", 10.00, 55.00 ,"02-222-2222","Landmark","www.aaa.com", ImageUtil.getImage("pic/clockTower.jpg")),
+                new Place(5l, "I like ice cream", "Cafe nearby university", 200.00, 150.00,"02-222-2222","Cafe","www.aaa.com", ImageUtil.getImage("pic/ilike.jpg")),
+                new Place(6l, "Sport Field", "Main sport field of university", 150.00, 100.00 ,"02-222-2222","Sportfield","www.aaa.com", ImageUtil.getImage("pic/sportField.jpg")),
+                new Place(7l, "Salatham", "Important place of university", 20.00, 260.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/salatham.jpg")),
+                new Place(8l, "RB5", "Building for learning any subject", 240.00, 2.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/rb5.jpg")),
+                new Place(9l, "Faihin", "Market inside university", 2.00,10.00,"02-222-2222","Restaurant","www.aaa.com", ImageUtil.getImage("pic/faihin.jpg")),
+                new Place(10l, "Economic Building", "Building of economic faculty", 30.00,200.00,"02-222-2222","Building","www.aaa.com", ImageUtil.getImage("pic/econBuilding.jpg"))
         };
         placeRepository.save(Arrays.asList(initPlace));
 

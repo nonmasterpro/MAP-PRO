@@ -8,7 +8,9 @@
                     <small>Place Description</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#/index">Home</a>
+                  <li><a href="#/index">Home</a>
+                  </li>
+                    <li><a href="#/ManagePlace">Manage Place</a>
                     </li>
                     <li class="active">{{placeDetail.name}}</li>
                 </ol>
@@ -49,20 +51,33 @@
             </div>
 
             <div class="col-md-4">
-                <h3>{{placeDetail.name}}</h3>
-                <p>{{placeDetail.description}}</p>
+              <h3>{{placeDetail.name}}</h3>
+              <hr>
+              <p>{{placeDetail.description}}</p>
+              <hr>
+              <h3>Contact</h3>
+              <p>{{placeDetail.contact}}</p>
+              <hr>
+              <h3>Type</h3>
+              <p>{{placeDetail.type}}</p>
+              <hr>
+              <h3>Website</h3>
+              <p>{{placeDetail.website}}</p>
+
               <hr>
               <h4 ng-show="hasRole('admin')">Coordinates</h4>
               <p ng-show="hasRole('admin')">{{placeDetail.x}}</p>
               <p ng-show="hasRole('admin')">{{placeDetail.y}}</p>
+
+
               <a class="btn btn-danger" data-toggle="modal" data-target="#ModalCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" ng-click="addToCart(placeDetail)">Add to Cart</a>
-                <h3>Place Details</h3>
+                <!--<h3>Place Details</h3>
                 <ul>
                     <li>CMU</li>
                     <li>CAMT</li>
                     <li>Software Engineering</li>
                     <li>Hello World</li>
-                </ul>
+                </ul>-->
             </div>
         </div>
 

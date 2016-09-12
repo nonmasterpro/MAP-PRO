@@ -35,6 +35,9 @@
     var vm = this;
     vm.rememberMe = false;
     vm.login = function () {
+
+
+
       UserService.authenticate(serializeData ({username:vm.username,password:vm.password}),
       // success connection
       function (authenticationResult) {

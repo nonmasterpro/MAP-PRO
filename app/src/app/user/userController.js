@@ -30,7 +30,7 @@
         userService.delete({id: id}, function () {
           $rootScope.deleteSuccess = true;
           //$route.reload();
-
+          alert("Delete success!");
           $window.location.reload();
           //$window.location.reload();
           //$location.path("userList");
@@ -84,7 +84,7 @@
         flowFiles.upload();
 
         vm.addSuccess = true;
-
+        alert("Add success!");
         $window.location.href = '#/ManageMember';
 
       });
@@ -122,7 +122,7 @@
         flowFiles.upload();
 
         vm.editSuccess = true;
-
+        alert("Edit success!");
         $window.location.href = '#/ManageMember';
       });
     }

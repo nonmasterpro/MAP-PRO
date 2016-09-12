@@ -10,8 +10,8 @@ import java.util.List;
  */
 
 public interface PlaceRepository extends JpaRepository<Place,Long>{
-    public List<Place> findByNameLike(String name);
-    public List<Place> findByNameContaining(String name);
-    public List<Place> findByNameContainingIgnoreCase(String name);
-    public List<Place> findByNameOrDescriptionContainingIgnoreCase(String name, String description);
+    List<Place> findByNameLike(String name);
+    List<Place> findByNameContaining(String name);
+    List<Place> findByNameContainingIgnoreCase(String name);
+    List<Place> findByNameOrDescriptionContainingIgnoreCase(String name, String description);
 }

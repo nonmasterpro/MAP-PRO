@@ -12,6 +12,8 @@
       <ol class="breadcrumb">
         <li><a href="#/index">Home</a>
         </li>
+        <li><a href="#/ManagePlace">Manage Place</a>
+        </li>
         <li class="active"  ng-show="editPlace">Edit Place</li>
         <li class="active"  ng-show="addPlace">Add Place</li>
       </ol>
@@ -62,8 +64,8 @@
 
 
           <div class="form-group">
-            <label for="placecontact">Contact :</label>
-            <input ng-model="place.contact" class="form-control" id="placecontact"
+            <label for="placecontact">Contact No. :</label>
+            <input ng-model="place.contact" class="form-control" ng-pattern="/^[0-9]*$/" id="placecontact"
                    placeholder="contact" name="placecontact" required/>
 
             <div class="alert alert-danger" role="alert" ng-show="editform.placecontact.$error.required">
@@ -73,11 +75,13 @@
             </div>
         </div>
 
+
       <div class="form-group">
         <label for="placetype">Type :</label>
         <select ng-model="place.type" class="form-control" id="placetype"
                placeholder="Type select" name="placetype" required>
           <option value="">
+          <option value="Faculty">Faculty
           <option value="Building">Building
           <option value="Sportfield">Sportfield
           <option value="Cafe">Cafe

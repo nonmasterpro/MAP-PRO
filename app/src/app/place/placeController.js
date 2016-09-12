@@ -15,7 +15,7 @@
 
     $scope.datas = [];
     $scope.data = {};
-    $scope.addData = function (datas) {
+    $scope.addData = function (data) {
       datas.push($scope.data);
       $scope.data = {};
     }
@@ -42,6 +42,7 @@
         flowFiles.upload();
 
         vm.addSuccess = true;
+        alert("Add success!");
         $window.location.href = '#/ManagePlace';
 
       });
@@ -77,7 +78,7 @@
 
           //$rootScope.deleteSuccess = true;
           //alert(1);
-
+          alert("Delete success!");
           $window.location.reload();
         }, function(error) {
           console.log(error);
@@ -176,7 +177,7 @@
         flowFiles.upload();
 
         vm.editSuccess = true;
-
+alert("Edit success!");
         $window.location.href = '#/ManagePlace';
       });
     }

@@ -50,16 +50,12 @@
               <hr>
               <h3>Contact</h3>
               <p>{{place.contact}}</p>
-              <hr>
-              <h3>Type</h3>
-              <p>{{place.type}}</p>
+
               <hr>
               <h3>Website</h3>
               <p>{{place.website}}</p>
               <hr>
-              <h4 ng-show="hasRole('admin')||hasRole('userwholesale')">Coordinates</h4>
-              <p ng-show="hasRole('admin')">x : {{place.x}}</p>
-              <p ng-show="hasRole('admin')">y : {{place.y}}</p>
+
                 <a class="btn btn-danger" ng-href="#/PlaceItem/{{place.id}}">View Place</a>
               <a class="btn btn-danger" data-toggle="modal" data-target="#ModalCart" ng-show="hasRole('userretail')||hasRole('userwholesale')" ng-click="addToCart(place)">Add to Cart</a>
             </div>

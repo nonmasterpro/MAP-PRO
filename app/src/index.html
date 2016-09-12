@@ -27,8 +27,11 @@
   </head>
   <body ng-controller = "LoginController as login" >
   <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+
+  <nav class="navbar navbar-default navbar-fixed-top"  role="navigation">
     <div class="container">
+
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -77,17 +80,20 @@
             <button class="btn btn-primary btn-nav" data-toggle="modal" data-target="#Modal-Login" ng-hide="user" translate>menu.Login</button>
           </li>
           <li class="dropdown" ng-show="user">
-            <button class="dropdown-toggle btn btn-danger btn-nav" data-toggle="dropdown">{{user.name}}<b class="caret"></b></button>
+            <button class="dropdown-toggle btn btn-info btn-nav" data-toggle="dropdown">{{user.name}}<b class="caret"></b></button>
             <ul class="dropdown-menu">
-              <li>
+
+              <!--<li>
                 <a style="text-align: center" href="#/ManagePlace" ng-show="hasRole('admin')" translate>Manage Place</a>
                 <a style="text-align: center" href="#/ManageMember" ng-show="hasRole('admin')" translate>Manage Member</a>
-              </li>
+              </li>-->
               <li>
                 <button translate style="color:whitesmoke; width: 100%" type="button" class="btn-danger" data-toggle="modal" data-target="#Modal-Prompt2" ng-click="logout()">menu.Logout</button>
               </li>
             </ul>
           </li>
+
+
           <div  ng-controller="LanguageController">
             <div class="container-fluid">
               <div class="collapse navbar-collapse">
@@ -118,29 +124,29 @@
       <button type="button" class="close" data-dismiss="modal">
         <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
       </button>
-      <h3 class="modal-title" id="modal-login-label">Login </h3>
-      <p>Enter your username and password :</p>
+      <h3 class="modal-title , glyphicon glyphicon-user" id="modal-login-label"> Login </h3>
+
     </div>
 
     <div class="modal-body">
       <form class="login-form">
         <div class="form-group">
           <label class="sr-only" for="username">Username</label>
-          <input type="text" placeholder="Username..." class="form-control" id="username" ng-model ="login.username">
+          <input type="text"  ng-minlength="4" ng-maxlength="25" placeholder="Username..." class="form-control" id="username" ng-model ="login.username">
         </div>
         <div class="form-group">
           <label class="sr-only" for="password">Password</label>
-          <input type="password"  placeholder="Password..." class="form-control" id="password" ng-model ="login.password">
+          <input type="password" ng-minlength="6" ng-maxlength="12"  placeholder="Password..." class="form-control" id="password" ng-model ="login.password">
         </div>
         <div class="form-group">
             <div class="checkbox">
-              <label style="color: white">
+              <label style="color: whitesmoke">
                 <input type="checkbox" ng-model="login.rememberMe" checked="checked"> Stay on this site
               </label>
             </div>
         </div>
         <div class="form-group">
-        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Modal-Prompt" ng-click="login.login()" data-dismiss="modal">Sign in!</button>
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Modal-Prompt" ng-click="login.login()" data-dismiss="modal">Log in</button>
           </div>
       </form>
     </div>

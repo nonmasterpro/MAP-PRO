@@ -70,14 +70,20 @@ public class User {
         return result;
     }
 
-    public String getUsername() {
-
-        return username;
-    }
-
-    public void setUsername(String username) {
+    public User(String username, String password) {
         this.username = username;
+        this.password = password;
     }
+
+
+    public User(String username, String name, String email, String password) {
+        this.username = username;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+
 
     public User(Long id, String name,String username, String email, String password) {
         this.id = id;
@@ -95,6 +101,12 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -136,9 +148,9 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
                 '}';
     }
 }

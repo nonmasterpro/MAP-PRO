@@ -11,6 +11,8 @@
       <ol class="breadcrumb">
         <li><a href="#/index">Home</a>
         </li>
+        <li><a href="#/ManageMember">Manage Member</a>
+        </li>
         <li class="active"  ng-show="editUser">Edit User</li>
         <li class="active"  ng-show="addUser">Add User</li>
       </ol>
@@ -36,7 +38,7 @@
 
         <div class="form-group">
           <label for="username">Username :</label>
-          <input ng-model="user.username" class="form-control" id="username" name="username" placeholder="name" required/>
+          <input ng-model="user.username" ng-minlength="4" ng-maxlength="25" class="form-control" id="username" name="username" placeholder="name" required/>
 
           <div class="alert alert-danger" role="alert" ng-show="editform.username.$error.required">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -65,10 +67,27 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
             Email is Required! and Valid Email
-
-
-          </div>
+         </div>
         </div>
+
+        <!--<div class="form-group">
+          <label for="role">Role :</label>
+          <select ng-model="user.role" class="form-control" id="role"
+                  placeholder="Role" name="role" required>
+            <option value="">
+            <option value="admin">admin
+            <option value="user">user
+
+          </select>
+
+          <div class="alert alert-danger" role="alert" ng-show="editform.role.$error.required">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Role is Required!
+          </div>
+        </div>-->
+
+
 
         <div ng-hide="editform.$valid">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

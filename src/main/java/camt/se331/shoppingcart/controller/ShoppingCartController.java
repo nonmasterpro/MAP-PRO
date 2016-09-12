@@ -48,10 +48,10 @@ public class ShoppingCartController {
         return shoppingCartService.addSelectedProduct(shoppingCart, place);
     }
 
-    @RequestMapping(value="/saveCart",method= RequestMethod.POST)
-    public ShoppingCart saveCart(@RequestBody ShoppingCart shoppingCart){
-        User user = userService.findByUserName(shoppingCart.getUser().getUsername());
-        shoppingCart.setUser(user);
-        return shoppingCartService.addShoppingCart(shoppingCart);
-    }
+//    @RequestMapping(value="/saveCart",method= RequestMethod.POST)
+//    public ShoppingCart saveCart(@RequestBody ShoppingCart shoppingCart){
+//        User user = userService.findByUserName(shoppingCart.getUser().getUsername());
+//        shoppingCart.setUser(user);
+//        return shoppingCartService.addShoppingCart(shoppingCart);
+//    }
 }

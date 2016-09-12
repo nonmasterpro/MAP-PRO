@@ -14,7 +14,7 @@
       templateUrl: 'app/main/main.html'
     }).
     when('/Place1',{
-      templateUrl: 'app/place/PlaceT1.html',
+      templateUrl: 'app/place/managePlace.html',
       controller: 'listPlaceController',
       controllerAs: 'vm'
     }).
@@ -107,7 +107,7 @@
       controllerAs: 'vm'
     }).
     when('/memberList',{
-      templateUrl: 'app/user/userList.html',
+      templateUrl: 'app/user/ManageUser.html',
       controller: 'listUserController',
       controllerAs: 'vm'
     }).
