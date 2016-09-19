@@ -76,16 +76,24 @@
       userService.save(vm.user, function (data) {
         // after adding the object, add a new picture
         // get the product id which the image will be addded
-        var userid = data.id;
-        // set location
-        flowFiles.opts.target = 'http://localhost:8080/userImage/add';
-        flowFiles.opts.testChunks = false;
-        flowFiles.opts.query = {userid: userid};
-        flowFiles.upload();
+        if(data.result=="Add Success"){
+          var userid = data.id;
+          // set location
+          flowFiles.opts.target = 'http://localhost:8080/userImage/add';
+          flowFiles.opts.testChunks = false;
+          flowFiles.opts.query = {userid: userid};
+          flowFiles.upload();
+          alert(data.result);
+          $window.location.href = '#/ManageMember';
+        }else{
+          alert(data.result);
+          $window.location.href = '#/addUser';
+        }
+
 
         vm.addSuccess = true;
-        alert("Add success!");
-        $window.location.href = '#/ManageMember';
+        //alert("Add success!");
+
 
       });
     }

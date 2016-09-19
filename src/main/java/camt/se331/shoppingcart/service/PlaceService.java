@@ -11,6 +11,7 @@ import java.util.List;
 public interface PlaceService {
     List<Place> getPlaces();
     List<Place> getPlacesByName(String name);
+    Place findByName(String name);
     Place getPlace(Long id);
     Place addPlace(Place place);
     Place deletePlace(Long id);

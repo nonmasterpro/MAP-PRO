@@ -61,7 +61,26 @@ public class Place implements Comparable{
         this.images.add(image) ;
     }
 
+    public Place(String name, String description, String contact, String type, String website, Double x, Double y) {
+        this.name = name;
+        this.description = description;
+        this.contact = contact;
+        this.type = type;
+        this.website = website;
+        this.x = x;
+        this.y = y;
+    }
 
+    public Place(Long id,String name, String description, String contact, String type, String website, Double x, Double y) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.contact = contact;
+        this.type = type;
+        this.website = website;
+        this.x = x;
+        this.y = y;
+    }
 
     public Place(Long id, String name, String description, Double x, Double y, String contact, Image image) {
         this.id = id;
@@ -125,25 +144,36 @@ public class Place implements Comparable{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Place)) return false;
 
         Place place = (Place) o;
 
-        if (!id.equals(place.id)) return false;
-        if (!name.equals(place.name)) return false;
-        if (!description.equals(place.description)) return false;
-        if (!x.equals(place.x)) return false;
-        return y.equals(place.y);
+        if (getId() != null ? !getId().equals(place.getId()) : place.getId() != null) return false;
+        if (getName() != null ? !getName().equals(place.getName()) : place.getName() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(place.getDescription()) : place.getDescription() != null)
+            return false;
+        if (getX() != null ? !getX().equals(place.getX()) : place.getX() != null) return false;
+        if (getY() != null ? !getY().equals(place.getY()) : place.getY() != null) return false;
+        if (getContact() != null ? !getContact().equals(place.getContact()) : place.getContact() != null) return false;
+        if (contactNo != null ? !contactNo.equals(place.contactNo) : place.contactNo != null) return false;
+        if (getType() != null ? !getType().equals(place.getType()) : place.getType() != null) return false;
+        if (getWebsite() != null ? !getWebsite().equals(place.getWebsite()) : place.getWebsite() != null) return false;
+        return getImages() != null ? getImages().equals(place.getImages()) : place.getImages() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + description.hashCode();
-        result = 31 * result + x.hashCode();
-        result = 31 * result + y.hashCode();
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getX() != null ? getX().hashCode() : 0);
+        result = 31 * result + (getY() != null ? getY().hashCode() : 0);
+        result = 31 * result + (getContact() != null ? getContact().hashCode() : 0);
+        result = 31 * result + (contactNo != null ? contactNo.hashCode() : 0);
+        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+        result = 31 * result + (getWebsite() != null ? getWebsite().hashCode() : 0);
+        result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
         return result;
     }
 
@@ -216,5 +246,19 @@ public class Place implements Comparable{
     public int compareTo(Object o) {
 
         return (int) (this.getId() - ((Place)o).getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", contact='" + contact + '\'' +
+                ", type='" + type + '\'' +
+                ", website='" + website + '\'' +
+                ", x='" + x + '\'' +
+                ", y='" + y + '\'' +
+                '}';
     }
 }

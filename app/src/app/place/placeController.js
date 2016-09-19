@@ -25,7 +25,7 @@
 
 
   /** @ngInject */
-  function addPlaceController($http,$scope, $location, $rootScope, placeService,$window) {
+  function addPlaceController($http,$scope, $location, $rootScope, placeService,$window,$timeout) {
     var vm = $scope;
     vm.place = {};
     vm.addPerson = true;
@@ -33,17 +33,29 @@
     vm.addPlace = function (flowFiles) {
       placeService.save(vm.place, function (data) {
         // after adding the object, add a new picture
-        // get the product id which the image will be addded
+        // get the product id which the image will be added
+        if(data.result=="Add Success"){
+          console.log(data)
+          console.log(data.id);
         var placeid = data.id;
         // set location
         flowFiles.opts.target = 'http://localhost:8080/productImage/add';
         flowFiles.opts.testChunks = false;
-        flowFiles.opts.query = {placeid: placeid};
+        flowFiles.opts.query = {placeId: placeid};
         flowFiles.upload();
+        vm.addSuccess = true;
+
+          alert(data.result);
+
+          $window.location.href = '#/ManagePlace';
+        }else{
+          alert(data.result);
+          $window.location.href = '#/addPlace';
+        }
 
         vm.addSuccess = true;
-        alert("Add success!");
-        $window.location.href = '#/ManagePlace';
+        //alert("Add success!");
+
 
       });
     }

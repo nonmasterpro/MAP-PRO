@@ -25,6 +25,10 @@ public class DbPlaceDao implements PlaceDao {
         return placeRepository.findByNameContainingIgnoreCase(name);
     }
 
+    @Override
+    public Place findByName(String name) {
+        return placeRepository.findByname(name);
+    }
 
     @Override
     public Place getPlace(Long id) {
@@ -33,7 +37,14 @@ public class DbPlaceDao implements PlaceDao {
 
     @Override
     public Place addPlace(Place place) {
-        return placeRepository.save(place);
+        String Pname = place.getName();
+        Place checkPname = placeRepository.findByname(Pname);
+
+        if(checkPname != null){
+            return null;
+        }else {
+            return placeRepository.save(place);
+        }
     }
 
     @Override

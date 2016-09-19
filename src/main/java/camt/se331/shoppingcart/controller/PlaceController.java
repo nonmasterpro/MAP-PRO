@@ -2,7 +2,9 @@ package camt.se331.shoppingcart.controller;
 
 import camt.se331.shoppingcart.entity.Place;
 import camt.se331.shoppingcart.service.PlaceService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,10 +30,22 @@ public class PlaceController {
     public  List<Place> getListByName(@RequestParam("name")String name){
         return placeService.getPlacesByName(name);
     }
+
+
     @RequestMapping(value = "place",method = RequestMethod.POST)
     public @ResponseBody
-    Place add(@RequestBody Place place, BindingResult bindingResult){
-        return placeService.addPlace(place);
+    ResponseEntity<JSONObject> add(@RequestBody Place place, BindingResult bindingResult){
+        Place result = placeService.addPlace(place);
+        if(result!=null){
+            JSONObject object = new JSONObject();
+            object.put("result","Add Success");
+            object.put("id",result.getId());
+            return ResponseEntity.ok(object);
+        }else{
+            JSONObject object = new JSONObject();
+            object.put("result","Name already exist");
+            return ResponseEntity.ok(object);
+        }
     }
 
     @RequestMapping(value = "place/{id}",method = RequestMethod.GET)

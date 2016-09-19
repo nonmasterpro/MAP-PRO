@@ -26,7 +26,11 @@ public class PlaceServiceImpl implements PlaceService {
         return placeDao.getPlaces();
     }
 
-
+    @Override
+    @Transactional
+    public Place findByName(String name) {
+        return placeRepository.findByname(name);
+    }
 
     @Override
     public Place getPlace(Long id) {

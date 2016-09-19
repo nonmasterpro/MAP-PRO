@@ -10,6 +10,7 @@ import java.util.List;
 public interface PlaceDao {
     List<Place> getPlaces();
     List<Place> getPlacesByName(String name);
+    Place findByName(String name);
     Place getPlace(Long id);
     Place addPlace(Place place);
     Place deletePlace(Place place);

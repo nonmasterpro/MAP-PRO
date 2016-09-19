@@ -14,4 +14,5 @@ public interface PlaceRepository extends JpaRepository<Place,Long>{
     List<Place> findByNameContaining(String name);
     List<Place> findByNameContainingIgnoreCase(String name);
     List<Place> findByNameOrDescriptionContainingIgnoreCase(String name, String description);
+    Place findByname(String name);
 }

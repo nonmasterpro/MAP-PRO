@@ -3,6 +3,7 @@ package camt.se331.shoppingcart.dao;
 import camt.se331.shoppingcart.entity.Role;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.repository.UserRepository;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,11 +43,26 @@ public class DbUserDao  implements UserDao{
 
     @Override
     public User addUser(User user) {
-        Role customerRole = new Role("user");
-        Set<Role> roles = new HashSet<>();
-        roles.add(customerRole);
-        user.setRoles(roles);
-        return userRepository.save(user);
+        String Uname = user.getUsername();
+        User checkUname = userRepository.findByUsername(Uname);
+
+        String Uemail = user.getEmail();
+        User checkUemail = userRepository.findByEmail(Uemail);
+
+
+        if(checkUname != null || checkUemail != null){
+            return null;
+        }
+        else{
+            Role customerRole = new Role("user");
+            Set<Role> roles = new HashSet<>();
+            roles.add(customerRole);
+            user.setRoles(roles);
+            User userResult = userRepository.save(user);
+            return userResult;
+        }
+
+
     }
 
     @Override

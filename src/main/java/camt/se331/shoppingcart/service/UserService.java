@@ -1,6 +1,5 @@
 package camt.se331.shoppingcart.service;
 
-import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.entity.User;
 
 import java.util.List;

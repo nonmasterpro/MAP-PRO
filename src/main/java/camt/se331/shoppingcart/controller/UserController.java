@@ -1,7 +1,9 @@
 package camt.se331.shoppingcart.controller;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.service.UserService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +36,18 @@ public class UserController {
 
     @RequestMapping(value = "customer", method = RequestMethod.POST)
     public @ResponseBody
-    User add(@RequestBody User user, BindingResult bindingResult){
-        return userService.addUser(user);
+    ResponseEntity<JSONObject> add(@RequestBody User user, BindingResult bindingResult){
+        User result = userService.addUser(user);
+        if(result!=null){
+            JSONObject object = new JSONObject();
+            object.put("result","Add Success");
+            object.put("id",result.getId());
+            return ResponseEntity.ok(object);
+        }else{
+            JSONObject object = new JSONObject();
+            object.put("result","Username or Email are already exist");
+            return ResponseEntity.ok(object);
+        }
     }
 
     @RequestMapping(value = "customer/{id}",method = RequestMethod.PUT)
